@@ -46,9 +46,12 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         if initModel.isComplete {
             
             textView.text = initModel.sentence.joined(separator: " ")
-            
+    
             let alert = UIAlertController(title: "Sentence Complete.", message: "'The worst enemy to creativity is self-doubt.'― Sylvia Plath", preferredStyle: .alert)
             present(alert, animated: true)
+ 
+            
+            
             return
             
         }

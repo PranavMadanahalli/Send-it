@@ -88,7 +88,7 @@
         <!--Start Building View Controller-->
         <scene sceneID="m80-no-lvk">
             <objects>
-                <viewController storyboardIdentifier="StartBuildingSenditViewController" id="PKP-C1-uyg" customClass="StartBuildingViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartBuildingSenditViewController" id="PKP-C1-uyg" customClass="StartBuildingViewController" customModule="MessagesExtension" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vPl-wU-nvk"/>
                         <viewControllerLayoutGuide type="bottom" id="sBa-HM-RUH"/>
@@ -97,44 +97,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add a word" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="hFk-ys-PLm" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="248" width="191" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="6WK-9t-GzJ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="qxl-N2-MyA"/>
-                                    <constraint firstAttribute="width" constant="191" id="rb9-3U-DjL"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="19"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="insert word." textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="hFk-ys-PLm" customClass="MadokaTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="119" y="262" width="137" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" red="0.11493617581260694" green="0.51764705882352757" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.92365658283233643" green="0.2394346296787262" blue="0.20430144667625427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.92365658283233643" green="0.2394346296787262" blue="0.20430144667625427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.1149361758" green="0.51764705879999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-tw-uoq">
-                                <rect key="frame" x="0.0" y="90" width="375" height="150"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-tw-uoq">
+                                <rect key="frame" x="0.0" y="104" width="375" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1yL-tw-uoq" secondAttribute="height" multiplier="5:2" id="3Di-eb-uAw"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaV-7I-oP9" customClass="PressableButton" customModule="SwiftyButton">
-                                <rect key="frame" x="215" y="274" width="148" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="148" id="LWH-WM-qCi"/>
-                                    <constraint firstAttribute="height" constant="46" id="fbg-XA-deM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaV-7I-oP9" customClass="PressableButton" customModule="SwiftyButton">
+                                <rect key="frame" x="264" y="262" width="108" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -151,23 +148,30 @@
                                     <action selector="sendIt:" destination="PKP-C1-uyg" eventType="touchUpInside" id="Q4V-rb-Tg2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUG-23-ANv" customClass="PressableButton" customModule="SwiftyButton" propertyAccessControl="none">
+                                <rect key="frame" x="3" y="262" width="108" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
+                                <state key="normal" title="Give up"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="depth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hpo-eq-lOM">
+                                <rect key="frame" x="119" y="303" width="137" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1yL-tw-uoq" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="26" id="28R-25-HEg"/>
-                            <constraint firstItem="hFk-ys-PLm" firstAttribute="top" secondItem="1yL-tw-uoq" secondAttribute="bottom" constant="8" id="2ao-HS-P7n"/>
-                            <constraint firstItem="1yL-tw-uoq" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="-16" id="7PT-kp-x4r"/>
-                            <constraint firstItem="SaV-7I-oP9" firstAttribute="leading" secondItem="hFk-ys-PLm" secondAttribute="trailing" constant="8" id="7cG-HJ-Cic"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SaV-7I-oP9" secondAttribute="trailing" constant="-4" id="A5y-jv-thF"/>
-                            <constraint firstItem="SaV-7I-oP9" firstAttribute="leading" secondItem="hFk-ys-PLm" secondAttribute="trailing" constant="8" id="HPL-ma-v1m"/>
-                            <constraint firstItem="hFk-ys-PLm" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" id="Pqg-oN-jlQ"/>
-                            <constraint firstItem="SaV-7I-oP9" firstAttribute="top" secondItem="1yL-tw-uoq" secondAttribute="bottom" constant="34" id="Rdr-c0-zR4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SaV-7I-oP9" secondAttribute="trailing" constant="-4" id="XE7-Yk-oNc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SaV-7I-oP9" secondAttribute="trailing" constant="-4" id="byT-lV-wA5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1yL-tw-uoq" secondAttribute="trailing" constant="-16" id="uIb-jB-OSH"/>
-                            <constraint firstItem="sBa-HM-RUH" firstAttribute="top" secondItem="hFk-ys-PLm" secondAttribute="bottom" constant="347" id="yC8-oH-X6k"/>
-                            <constraint firstItem="sBa-HM-RUH" firstAttribute="top" secondItem="SaV-7I-oP9" secondAttribute="bottom" constant="347" id="zJi-eQ-RId"/>
-                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

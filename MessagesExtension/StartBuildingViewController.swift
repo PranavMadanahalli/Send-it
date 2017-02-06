@@ -13,8 +13,6 @@ import RxCocoa
 
 import TextFieldEffects
 
-
-
 class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet weak var textView: UITextView!
@@ -39,6 +37,8 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
+        textView.setContentOffset(CGPoint.zero, animated: false)
+
         textField.delegate = self
         
         let initSentence: Variable<String> = Variable("       That feeling when ")

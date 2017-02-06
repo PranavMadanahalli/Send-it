@@ -10,6 +10,7 @@ import Foundation
 import Messages
 
 
+
 struct SenditSentence {
     // MARK: Properties
     
