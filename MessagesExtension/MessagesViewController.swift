@@ -111,7 +111,22 @@ class MessagesViewController: MSMessagesAppViewController {
             if let message = conversation.selectedMessage,
                 let session = message.session {
                 let player = "$\(conversation.localParticipantIdentifier)"
-                let caption = playerWon ? "\(player) destroyed all the ships!" : "\(player) lost!"
+                let caption = playerWon ? "\(player) ended the sentence." : "\(player) lost!"
+                
+                self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
+            }
+            
+            self.dismiss()
+        }
+        
+        controller.onTimeCompletion = {
+            [unowned self]
+            model, playerWon, snapshot in
+            
+            if let message = conversation.selectedMessage,
+                let session = message.session {
+                let player = "$\(conversation.localParticipantIdentifier)"
+                let caption = playerWon ? "\(player) couldn't Send it in time." : "\(player) lost!"
                 
                 self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
             }
@@ -124,17 +139,16 @@ class MessagesViewController: MSMessagesAppViewController {
     
     
     private func instantiateBuildSenditViewController(with conversation: MSConversation, model: SenditSentence) -> UIViewController {
-        // Instantiate a `BuildIceCreamViewController` and present it.
         
-        print(model.currentPlayer + " - " + "\(conversation.localParticipantIdentifier)")
         
-        //if(model.currentPlayer != conversation.localParticipantIdentifier.uuidString){
-            
+        
         guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
         
-            controller.initModel = model
+        controller.initModel = model
         
-            if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
+        
+        
+        if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
             controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
 
             controller.onGameCompletion = {
@@ -144,7 +158,22 @@ class MessagesViewController: MSMessagesAppViewController {
                 if let message = conversation.selectedMessage,
                     let session = message.session {
                     let player = "$\(conversation.localParticipantIdentifier)"
-                    let caption = playerWon ? "\(player) destroyed all the ships!" : "\(player) lost!"
+                    let caption = playerWon ? "\(player) ended the sentence." : "\(player) lost!"
+                    
+                    self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
+                }
+                
+                self.dismiss()
+            }
+            
+            controller.onTimeCompletion = {
+                [unowned self]
+                model, playerWon, snapshot in
+                
+                if let message = conversation.selectedMessage,
+                    let session = message.session {
+                    let player = "$\(conversation.localParticipantIdentifier)"
+                    let caption = playerWon ? "\(player) couldn't Send it in time." : "\(player) lost!"
                     
                     self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
                 }
@@ -155,10 +184,10 @@ class MessagesViewController: MSMessagesAppViewController {
             controller.onLocationSelectionComplete = {
                 [unowned self]
                 model, snapshot in
-                
+            
                 let session = conversation.selectedMessage?.session ?? MSSession()
                 let caption = "Add a word - Send it!"
-                
+            
                 self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
                 
                 self.dismiss()
@@ -168,20 +197,25 @@ class MessagesViewController: MSMessagesAppViewController {
             return controller
             
         }
-        else {
-            guard let controller = storyboard?.instantiateViewController(withIdentifier: "StartSenditViewController") as? StartSenditViewController else {
-                fatalError("Cannot instantiate view controller")
-            }
-            let alert = UIAlertController(title: "Waiting for opponent", message: "", preferredStyle: .alert)
+        else if (model.isComplete) {
+            
+            let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
             
             return controller
             
         }
-        
+        else {
+            
+            guard let controller = storyboard?.instantiateViewController(withIdentifier: "StartSenditViewController") as? StartSenditViewController else {
+                fatalError("Cannot instantiate view controller")}
+            let alert = UIAlertController(title: "Waiting for opponent...", message: "", preferredStyle: .alert)
+            present(alert, animated: true)
+            
+            return controller
+        }
         
     }
-    
 
 }
 extension MessagesViewController {

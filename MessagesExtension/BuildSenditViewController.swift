@@ -18,8 +18,18 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     static let storyboardIdentifier = "BuildSenditViewController"
     
-    @IBOutlet weak var textField: AkiraTextField!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet var textField: MadokaTextField!
+    
+    @IBOutlet var textView: UITextView!
+    
+    
+    @IBOutlet var timeLabel: UILabel!
+    
+    var seconds = 15
+    var timer = Timer()
+    
+    
+    
     
     let disposeBag = DisposeBag()
     
@@ -28,28 +38,59 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     var onLocationSelectionComplete: ((SenditSentence, UIImage) -> Void)?
     
+    var onTimeCompletion: ((SenditSentence,Bool, UIImage) -> Void)?
     
+
     var initModel: SenditSentence!
     
     var playerBOI: String!
     
     
-    // MARK: UIViewController
     
+    
+    // MARK: UIViewController
+    func counter()
+    {
+        seconds -= 1
+        timeLabel.text = String(seconds)
+        if (seconds == 0)
+        {
+            timer.invalidate()
+            var model: SenditSentence?
+            let sentenceTemp = textView.text
+            let sentenceArr = sentenceTemp?.components(separatedBy: " ")
+            
+            model = SenditSentence(sentence: sentenceArr!, isComplete: true, currentPlayer: playerBOI)
+            let snapshot = UIImage.snapshot(from: textView)
+            
+            onTimeCompletion?(model!, true , snapshot)
+            
+        }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        timer.invalidate()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textView.setContentOffset(CGPoint.init(x: 0.0, y: 15.0), animated: false)
+        timer.invalidate()
+
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+
         self.automaticallyAdjustsScrollViewInsets = false
         
         textField.delegate = self
         
-        if initModel.isComplete {
+        if initModel.isComplete{
             
+            timer.invalidate()
             textView.text = initModel.sentence.joined(separator: " ")
     
-            let alert = UIAlertController(title: "Sentence Complete.", message: "'The worst enemy to creativity is self-doubt.'― Sylvia Plath", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
- 
             
             
             return
@@ -99,13 +140,17 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
     }
     
-    @IBAction func sendITMan(_ sender: Any) {
+    @IBAction func sendIT(_ sender: Any) {
         
-        
-        if textView.text.contains("."){
+        if(textField.text == ""){
+            return
+        }
+        timer.invalidate()
+
+        if textView.text.contains(".") || textView.text.contains("!") || textView.text.contains("?"){
             
             gameCompletionFunc()
-           
+            
         }
         else {
             let sentenceTemp = textView.text
@@ -120,12 +165,10 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             
             
             onLocationSelectionComplete?(model!, UIImage.snapshot(from: textView))
-        
+            
         }
-        
-        
     }
-   
+    
     
     // MARK: Interface Builder actions
     
