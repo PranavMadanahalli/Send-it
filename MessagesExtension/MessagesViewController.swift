@@ -292,8 +292,9 @@ class MessagesViewController: MSMessagesAppViewController {
         }
         else {
             
-            guard let controller = storyboard?.instantiateViewController(withIdentifier: "StartSenditViewController") as? StartSenditViewController else {
-                fatalError("Cannot instantiate view controller")}
+            //guard let controller = storyboard?.instantiateViewController(withIdentifier: "StartSenditViewController") as? StartSenditViewController else {fatalError("Cannot instantiate view controller")}
+            
+            controller.setTimerYes(ba: false)
             let alert = UIAlertController(title: "Waiting for opponent...", message: "", preferredStyle: .alert)
             present(alert, animated: true)
             

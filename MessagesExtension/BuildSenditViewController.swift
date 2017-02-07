@@ -29,8 +29,11 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     var seconds: Int!
     
+    var timerYes: Bool = true
     
-    
+    func setTimerYes(ba: Bool){
+        timerYes = ba
+    }
    
     func setSeconds(sec:Int){
         
@@ -61,7 +64,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     {
         timeLabel.text = String(seconds)
         seconds! -= 1
-
+        
         if (seconds == 0)
         {
             timer.invalidate()
@@ -89,8 +92,9 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
 
         timer.invalidate()
 
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+        if(timerYes){
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+        }
         
         textField.delegate = self
         
