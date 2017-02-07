@@ -50,9 +50,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDu-f7-kvE" customClass="PressableButton" customModule="SwiftyButton">
-                                <rect key="frame" x="90" y="260" width="194" height="60"/>
+                                <rect key="frame" x="103" y="268" width="168" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="tDu-f7-kvE" secondAttribute="height" multiplier="97:30" id="ta5-TD-DbR"/>
+                                    <constraint firstAttribute="width" secondItem="tDu-f7-kvE" secondAttribute="height" multiplier="56:17" id="0qx-aI-CYh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                 <state key="normal" title="Send it!"/>
@@ -71,20 +71,135 @@
                                     <action selector="startGame:" destination="as6-he-df7" eventType="touchUpInside" id="t3k-7r-Gxm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQF-uP-oGy">
+                                <rect key="frame" x="150" y="346" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bQF-uP-oGy" secondAttribute="height" multiplier="5:2" id="79V-jf-aVp"/>
+                                </constraints>
+                                <state key="normal" title="customize.">
+                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="customize:" destination="as6-he-df7" eventType="touchUpInside" id="Aai-0r-FXP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="tDu-f7-kvE" secondAttribute="trailing" constant="75" id="KBe-RD-PE9"/>
-                            <constraint firstItem="tDu-f7-kvE" firstAttribute="leading" secondItem="wJd-PR-mFR" secondAttribute="leadingMargin" constant="74" id="elx-sR-3t4"/>
+                            <constraint firstItem="bQF-uP-oGy" firstAttribute="centerX" secondItem="wJd-PR-mFR" secondAttribute="centerX" id="4RT-YL-AG3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tDu-f7-kvE" secondAttribute="trailing" constant="88" id="MDn-Hd-ycT"/>
+                            <constraint firstItem="bQF-uP-oGy" firstAttribute="top" secondItem="gcq-ph-Ro8" secondAttribute="bottom" constant="1" id="ZuZ-bx-pkh"/>
                             <constraint firstItem="gcq-ph-Ro8" firstAttribute="centerY" secondItem="wJd-PR-mFR" secondAttribute="centerY" id="gQb-0z-0VM"/>
+                            <constraint firstItem="tDu-f7-kvE" firstAttribute="leading" secondItem="wJd-PR-mFR" secondAttribute="leadingMargin" constant="87" id="iNv-0M-xMe"/>
                             <constraint firstItem="gcq-ph-Ro8" firstAttribute="centerX" secondItem="wJd-PR-mFR" secondAttribute="centerX" id="sQP-qD-9hK"/>
-                            <constraint firstItem="gcq-ph-Ro8" firstAttribute="top" secondItem="tDu-f7-kvE" secondAttribute="bottom" constant="1" id="uGP-iC-1kX"/>
+                            <constraint firstItem="gcq-ph-Ro8" firstAttribute="top" secondItem="tDu-f7-kvE" secondAttribute="bottom" constant="2" id="wa3-jQ-mS0"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwZ-P5-oTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="845.60000000000002" y="-72.413793103448285"/>
+        </scene>
+        <!--Customize View Controller-->
+        <scene sceneID="DAG-7U-Stf">
+            <objects>
+                <viewController storyboardIdentifier="CustomizeViewController" id="Oja-NC-d3Q" customClass="CustomizeViewController" customModule="MessagesExtension" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3b-oh-y4l"/>
+                        <viewControllerLayoutGuide type="bottom" id="qwH-uy-gXm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kNO-fq-l2v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentence Starter." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGa-F2-uEd">
+                                <rect key="frame" x="122" y="326" width="130" height="15"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oeu-fD-3bE">
+                                <rect key="frame" x="108" y="349" width="159" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oeu-fD-3bE" secondAttribute="height" multiplier="159:31" id="K8E-sb-hAg"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Random"/>
+                                    <segment title="Create"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segDelta:" destination="Oja-NC-d3Q" eventType="valueChanged" id="zrv-p3-Vfv"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="h6e-jb-cMC">
+                                <rect key="frame" x="108" y="287" width="159" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="h6e-jb-cMC" secondAttribute="height" multiplier="159:31" id="0rt-B0-C5g"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="5"/>
+                                    <segment title="15"/>
+                                    <segment title="45"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="timeChanged:" destination="Oja-NC-d3Q" eventType="valueChanged" id="iup-WP-DrR"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer - Seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEu-4S-tAU">
+                                <rect key="frame" x="126" y="264" width="122" height="15"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X3-17-da5" customClass="PressableButton" customModule="SwiftyButton">
+                                <rect key="frame" x="136" y="388" width="102" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9X3-17-da5" secondAttribute="height" multiplier="102:31" id="EQq-Me-M9Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <state key="normal" title="Send it!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="depth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startGame:" destination="Oja-NC-d3Q" eventType="touchUpInside" id="Nrc-xn-g1f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LEu-4S-tAU" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="110" id="1q6-fp-TGF"/>
+                            <constraint firstItem="oeu-fD-3bE" firstAttribute="centerX" secondItem="kNO-fq-l2v" secondAttribute="centerX" id="3Cd-rN-ejD"/>
+                            <constraint firstItem="9X3-17-da5" firstAttribute="top" secondItem="oeu-fD-3bE" secondAttribute="bottom" constant="8" id="7eI-3G-UbD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h6e-jb-cMC" secondAttribute="trailing" constant="92" id="BOn-Fm-QwD"/>
+                            <constraint firstItem="fGa-F2-uEd" firstAttribute="top" secondItem="h6e-jb-cMC" secondAttribute="bottom" constant="8" id="FNd-0e-lTU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9X3-17-da5" secondAttribute="trailing" constant="121" id="KZZ-WS-hch"/>
+                            <constraint firstItem="oeu-fD-3bE" firstAttribute="top" secondItem="fGa-F2-uEd" secondAttribute="bottom" constant="8" id="Mj9-26-lPT"/>
+                            <constraint firstItem="h6e-jb-cMC" firstAttribute="top" secondItem="LEu-4S-tAU" secondAttribute="bottom" constant="8" id="a7g-eG-6Is"/>
+                            <constraint firstItem="fGa-F2-uEd" firstAttribute="centerX" secondItem="kNO-fq-l2v" secondAttribute="centerX" id="ak6-26-GDE"/>
+                            <constraint firstItem="fGa-F2-uEd" firstAttribute="centerY" secondItem="kNO-fq-l2v" secondAttribute="centerY" id="li3-ON-dIg"/>
+                            <constraint firstItem="9X3-17-da5" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="120" id="rtV-Vb-FUc"/>
+                            <constraint firstItem="h6e-jb-cMC" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="92" id="vev-AC-cIZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LEu-4S-tAU" secondAttribute="trailing" constant="111" id="xOd-B1-uY9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="segControl" destination="oeu-fD-3bE" id="feE-Jh-Whm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzm-ai-L0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="-72.413793103448285"/>
         </scene>
         <!--Start Building View Controller-->
         <scene sceneID="m80-no-lvk">
@@ -98,9 +213,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="insert word" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="hFk-ys-PLm" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="104" y="273" width="152" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="insert word" adjustsFontSizeToFit="NO" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="hFk-ys-PLm" customClass="AkiraTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="104" y="273" width="153" height="67.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hFk-ys-PLm" secondAttribute="height" multiplier="152:67" id="YU5-zo-y76"/>
+                                </constraints>
                                 <color key="textColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -125,16 +242,22 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-tw-uoq">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-tw-uoq">
                                 <rect key="frame" x="0.0" y="104" width="375" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="Eht-ni-4sX"/>
+                                    <constraint firstAttribute="height" constant="150" id="JEa-h7-ETA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaV-7I-oP9" customClass="PressableButton" customModule="SwiftyButton">
-                                <rect key="frame" x="264" y="294" width="108" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaV-7I-oP9" customClass="PressableButton" customModule="SwiftyButton">
+                                <rect key="frame" x="265" y="294" width="108" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SaV-7I-oP9" secondAttribute="height" multiplier="54:23" id="T6n-Tu-TZq"/>
+                                    <constraint firstAttribute="height" constant="46" id="TDx-XA-HMS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
@@ -152,15 +275,41 @@
                                     <action selector="sendIt:" destination="PKP-C1-uyg" eventType="touchUpInside" id="Q4V-rb-Tg2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtW-Cu-2eO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtW-Cu-2eO">
                                 <rect key="frame" x="34" y="302" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FtW-Cu-2eO" secondAttribute="height" multiplier="9:5" id="q9h-Op-DXB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="morphingProgress">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="morphingDuration">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="morphingEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="morphingCharacterDelay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hFk-ys-PLm" firstAttribute="top" secondItem="1yL-tw-uoq" secondAttribute="bottom" constant="19" id="5Rj-KL-7f0"/>
+                            <constraint firstItem="hFk-ys-PLm" firstAttribute="leading" secondItem="FtW-Cu-2eO" secondAttribute="trailing" constant="16" id="5Yo-eC-3Um"/>
+                            <constraint firstItem="1yL-tw-uoq" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="40" id="EFG-gi-K1d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SaV-7I-oP9" secondAttribute="trailing" constant="-14" id="HRd-8z-RxN"/>
+                            <constraint firstItem="FtW-Cu-2eO" firstAttribute="top" secondItem="1yL-tw-uoq" secondAttribute="bottom" constant="48" id="SHQ-op-QTK"/>
+                            <constraint firstItem="SaV-7I-oP9" firstAttribute="leading" secondItem="hFk-ys-PLm" secondAttribute="trailing" constant="8" id="ZnF-YN-xoR"/>
+                            <constraint firstItem="FtW-Cu-2eO" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="18" id="ahv-dk-btf"/>
+                            <constraint firstItem="SaV-7I-oP9" firstAttribute="top" secondItem="1yL-tw-uoq" secondAttribute="bottom" constant="40" id="fUp-ft-y1u"/>
+                            <constraint firstItem="1yL-tw-uoq" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leading" constant="1" id="fd3-61-eyV"/>
+                            <constraint firstAttribute="trailing" secondItem="1yL-tw-uoq" secondAttribute="trailing" constant="1" id="sxG-b7-Wwo"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

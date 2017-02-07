@@ -25,10 +25,23 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet var timeLabel: UILabel!
     
-    var seconds = 15
     var timer = Timer()
     
+    var seconds: Int!
     
+    var random: Bool!
+    
+    
+    func setSeconds(second:Int){
+        
+        seconds = second
+        
+    }
+    func setRandom(randoms:Bool){
+        
+        random = randoms
+        
+    }
     
     
     let disposeBag = DisposeBag()
@@ -51,7 +64,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     // MARK: UIViewController
     func counter()
     {
-        seconds -= 1
+        seconds! -= 1
         timeLabel.text = String(seconds)
         if (seconds == 0)
         {

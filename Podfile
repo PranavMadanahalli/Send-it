@@ -12,7 +12,6 @@ target 'MessagesExtension' do
    pod 'SwiftyButton'
    pod 'RxSwift',    '~> 3.0'
    pod 'RxCocoa',    '~> 3.0'
-
    #pod 'CountdownLabel', :git => 'https://github.com/SeRG1k17/CountdownLabel.git'
 
 

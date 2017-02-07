@@ -11,6 +11,27 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    var seconds: Int = 15
+    
+    var random: Bool = true
+    
+    func parseCustom(string: String){
+        
+        let sentenceArr = string.components(separatedBy: " ")
+        
+        if (sentenceArr[0] == "true"){
+            
+            random = true
+        
+        }
+        else{
+            random = false
+        }
+        
+        seconds = Int(sentenceArr[1])!
+        
+        
+    }
     
     override func didBecomeActive(with conversation: MSConversation) {
         super.didBecomeActive(with: conversation)
@@ -27,22 +48,33 @@ class MessagesViewController: MSMessagesAppViewController {
         presentChildViewController(for: presentationStyle, with: conversation)
     }
     
+    
+    func getSeconds()-> Int{
+        return seconds
+    }
+    func getRandom()-> Bool{
+        return random
+    }
+    
+    
+    
     private func presentChildViewController(for presentationStyle: MSMessagesAppPresentationStyle, with conversation: MSConversation){
         
         
         var controller = UIViewController()
         if presentationStyle == .compact {
-
+            
             controller = instantiateStartSenditViewController()
+            
         }
         else {
             if let message = conversation.selectedMessage,
                 let url = message.url {
                 let model = SenditSentence(from: url)
-                controller = instantiateBuildSenditViewController(with: conversation, model: model!)
+                controller = instantiateBuildSenditViewController(with: conversation, model: model!, randomStart: getRandom() , secondStart: getSeconds())
             }
             else {
-                controller = instantiateStartBuildingSenditViewController(with: conversation)
+                controller = instantiateStartBuildingSenditViewController(with: conversation, randomStart: getRandom() , secondStart: getSeconds())
             }
         }
         
@@ -68,6 +100,52 @@ class MessagesViewController: MSMessagesAppViewController {
     
     
     }
+    func customizeMethod(){
+        var controller = UIViewController()
+        
+            controller = instantiateCustom()
+        
+        
+        
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+        
+        // Embed the new controller.
+        addChildViewController(controller)
+        
+        controller.view.frame = view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controller.view)
+        
+        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        controller.didMove(toParentViewController: self)
+    
+    
+    }
+    func instantiateCustom()-> UIViewController{
+        
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: "CustomizeViewController") as? CustomizeViewController else {
+            fatalError("Cannot instantiate view controller")
+        }
+        controller.onButtonTap = {
+            [unowned self] in
+            
+            self.parseCustom(string: controller.sendData())
+            self.requestPresentationStyle(.expanded)
+
+            
+            
+        }
+    
+        return controller
+    }
     func instantiateStartSenditViewController() -> UIViewController {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: "StartSenditViewController") as? StartSenditViewController else {
             fatalError("Cannot instantiate view controller")
@@ -76,9 +154,17 @@ class MessagesViewController: MSMessagesAppViewController {
         controller.onButtonTap = {
             [unowned self] in
             
-
             self.requestPresentationStyle(.expanded)
             
+        }
+        
+        controller.onCustoTap = {
+            [unowned self] in
+            
+            self.customizeMethod()
+
+        
+        
         }
         
         
@@ -86,13 +172,14 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
 
-    private func instantiateStartBuildingSenditViewController(with conversation: MSConversation) -> UIViewController {
+    private func instantiateStartBuildingSenditViewController(with conversation: MSConversation, randomStart: Bool, secondStart: Int) -> UIViewController {
         // Instantiate a `BuildIceCreamViewController` and present it.
         guard let controller = storyboard?.instantiateViewController(withIdentifier:StartBuildingViewController.storyboardIdentifier) as? StartBuildingViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
         
         controller.setCurrentPlayer(player: "\(conversation.localParticipantIdentifier)")
         
-        
+        controller.setSeconds(second: secondStart)
+        controller.setRandom(randoms: randomStart)
         
         controller.onLocationSelectionComplete = {
             [unowned self]
@@ -141,7 +228,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     
-    private func instantiateBuildSenditViewController(with conversation: MSConversation, model: SenditSentence) -> UIViewController {
+    private func instantiateBuildSenditViewController(with conversation: MSConversation, model: SenditSentence, randomStart: Bool, secondStart: Int) -> UIViewController {
         
         
         
@@ -153,7 +240,8 @@ class MessagesViewController: MSMessagesAppViewController {
         
         if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
             controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
-
+            controller.setSeconds(second: secondStart)
+            controller.setRandom(randoms: randomStart)
             controller.onGameCompletion = {
                 [unowned self]
                 model, playerWon, snapshot in
@@ -201,7 +289,8 @@ class MessagesViewController: MSMessagesAppViewController {
             
         }
         else if (model.isComplete) {
-            
+            controller.setSeconds(second: secondStart)
+            controller.setRandom(randoms: randomStart)
             let alert = UIAlertController(title: "Impromptu session complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
             

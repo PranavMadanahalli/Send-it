@@ -12,9 +12,16 @@ class StartSenditViewController: UIViewController {
     
     var onButtonTap: ((Void) -> Void)?
     
+    var onCustoTap: ((Void) -> Void)?
+    
     @IBAction func startGame(_ sender: AnyObject) {
         onButtonTap?()
     }
+    @IBAction func customize(_ sender: AnyObject) {
+        onCustoTap?()
+    }
+    
+    
     
     
  

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		817C96121E49B1BA001ED68A /* CustomizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817C96111E49B1BA001ED68A /* CustomizeViewController.swift */; };
 		81C73C721E46684200806D2A /* BuildSenditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C73C711E46684200806D2A /* BuildSenditViewController.swift */; };
 		81C73C741E466C8100806D2A /* UIImage+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C73C731E466C8100806D2A /* UIImage+Snapshot.swift */; };
 		81C73C761E46720300806D2A /* StartBuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C73C751E46720300806D2A /* StartBuildingViewController.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		1CBF729AE6549F263CEED5CF /* Pods-Send it.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Send it.release.xcconfig"; path = "Pods/Target Support Files/Pods-Send it/Pods-Send it.release.xcconfig"; sourceTree = "<group>"; };
 		4B73161C3068F7F6D831AC17 /* Pods_Send_it.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Send_it.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		817C96111E49B1BA001ED68A /* CustomizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeViewController.swift; sourceTree = "<group>"; };
 		81C73C711E46684200806D2A /* BuildSenditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildSenditViewController.swift; sourceTree = "<group>"; };
 		81C73C731E466C8100806D2A /* UIImage+Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Snapshot.swift"; sourceTree = "<group>"; };
 		81C73C751E46720300806D2A /* StartBuildingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartBuildingViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				81D49DCB1E45B90100DB31F2 /* StartSenditViewController.swift */,
 				81C73C711E46684200806D2A /* BuildSenditViewController.swift */,
 				81C73C751E46720300806D2A /* StartBuildingViewController.swift */,
+				817C96111E49B1BA001ED68A /* CustomizeViewController.swift */,
 				81D49DCD1E45BCAA00DB31F2 /* SenditSentence.swift */,
 				81D49DBC1E45B6FD00DB31F2 /* MainInterface.storyboard */,
 				81D49DBF1E45B6FD00DB31F2 /* Assets.xcassets */,
@@ -353,6 +356,7 @@
 				81C73C741E466C8100806D2A /* UIImage+Snapshot.swift in Sources */,
 				81D49DCC1E45B90100DB31F2 /* StartSenditViewController.swift in Sources */,
 				81D49DCE1E45BCAA00DB31F2 /* SenditSentence.swift in Sources */,
+				817C96121E49B1BA001ED68A /* CustomizeViewController.swift in Sources */,
 				81C73C721E46684200806D2A /* BuildSenditViewController.swift in Sources */,
 				81D49DBB1E45B6FD00DB31F2 /* MessagesViewController.swift in Sources */,
 			);

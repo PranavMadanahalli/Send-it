@@ -23,9 +23,23 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet var timeLabel: UILabel!
     
-    var seconds = 15
-    var timer = Timer()
+     var timer = Timer()
+    
+    var seconds: Int!
+    
+    var random: Bool!
+
    
+    func setSeconds(second:Int){
+    
+        seconds = second
+    
+    }
+    func setRandom(randoms:Bool){
+        
+        random = randoms
+        
+    }
     
     
     let disposeBag = DisposeBag()
@@ -48,7 +62,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     func counter()
     {
-        seconds -= 1
+        seconds! -= 1
         timeLabel.text = String(seconds)
         if (seconds == 0)
         {
@@ -85,28 +99,16 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
 
         textField.delegate = self
         
-        
-        let randomIndex = Int(arc4random_uniform(UInt32(setenceStarters.count)))
-        let initSentence: Variable<String> = Variable(setenceStarters[randomIndex])
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        let initSentence: Variable<String>;
+        if(random!){
+            let randomIndex = Int(arc4random_uniform(UInt32(setenceStarters.count)))
+            initSentence = Variable(setenceStarters[randomIndex])
+        }
+        else {
+            initSentence = Variable("")
+        }
+    
+
         
         //magic happens here
         let wordObservable: Observable<String?> = textField.rx.text.asObservable()
