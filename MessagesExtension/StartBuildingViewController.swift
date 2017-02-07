@@ -62,16 +62,17 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     func counter()
     {
-        seconds! -= 1
-        timeLabel.text = String(seconds)
-        if (seconds == 0)
+        var sec = seconds!
+        sec -= 1
+        timeLabel.text = String(sec)
+        if (sec == 0)
         {
             timer.invalidate()
             var model: SenditSentence?
             let sentenceTemp = textView.text
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: true, currentPlayer: playerStartUID)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: String(seconds), currentPlayer: playerStartUID)
             let snapshot = UIImage.snapshot(from: textView)
             
             onTimeCompletion?(model!, true , snapshot)
@@ -151,7 +152,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
         
-            let model = SenditSentence(sentence: sentenceArr!, isComplete: false, currentPlayer: playerStartUID)
+            let model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), currentPlayer: playerStartUID)
         
             // Clear screen for snapshot (we don't want to give away where we've located our ships!)
             
@@ -175,7 +176,7 @@ extension StartBuildingViewController {
         let sentenceTemp = textView.text
         let sentenceArr = sentenceTemp?.components(separatedBy: " ")
         
-        model = SenditSentence(sentence: sentenceArr!, isComplete: true, currentPlayer: playerStartUID)
+        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: String(seconds), currentPlayer: playerStartUID)
         let snapshot = UIImage.snapshot(from: textView)
         onGameCompletion?(model!, true, snapshot)
         

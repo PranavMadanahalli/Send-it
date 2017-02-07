@@ -17,6 +17,8 @@ struct SenditSentence {
     var sentence: [String]
     var isComplete: Bool
     
+    var second: String
+    
     var currentPlayer: String
     
     
@@ -58,6 +60,13 @@ extension SenditSentence{
         items.append(playerItem)
         
         
+        let sec  = second
+        
+        let secondItem = URLQueryItem(name: "second", value: sec)
+        
+        items.append(secondItem)
+        
+        
         components.queryItems = items
         
     
@@ -89,6 +98,9 @@ extension SenditSentence {
         
         let playerQueryItem = componentItems.filter({ $0.name == "currentPlayer" }).first!
         currentPlayer = playerQueryItem.value!
+        
+        let secondQueryItem = componentItems.filter({ $0.name == "second" }).first!
+        second = secondQueryItem.value!
 
         
     }

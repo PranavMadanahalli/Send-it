@@ -18,8 +18,8 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     static let storyboardIdentifier = "BuildSenditViewController"
     
-    @IBOutlet var textField: MadokaTextField!
     
+    @IBOutlet var textField: AkiraTextField!
     @IBOutlet var textView: UITextView!
     
     
@@ -29,17 +29,12 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     var seconds: Int!
     
-    var random: Bool!
     
     
-    func setSeconds(second:Int){
+   
+    func setSeconds(sec:Int){
         
-        seconds = second
-        
-    }
-    func setRandom(randoms:Bool){
-        
-        random = randoms
+        seconds = sec
         
     }
     
@@ -73,7 +68,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             let sentenceTemp = textView.text
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: true, currentPlayer: playerBOI)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, currentPlayer: playerBOI)
             let snapshot = UIImage.snapshot(from: textView)
             
             onTimeCompletion?(model!, true , snapshot)
@@ -133,12 +128,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         }
         
         
-        // Make sure the prompt and ice cream view are showing the correct information.
         
-        /*
-         We want the collection view to decelerate faster than normal so comes
-         to rests on a body part more quickly.
-         */
         
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -153,13 +143,12 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
     }
     
-    @IBAction func sendIT(_ sender: Any) {
-        
+    @IBAction func sendIt(_ sender: Any) {
         if(textField.text == ""){
             return
         }
         timer.invalidate()
-
+        
         if textView.text.contains(".") || textView.text.contains("!") || textView.text.contains("?"){
             
             gameCompletionFunc()
@@ -174,16 +163,13 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             print(playerBOI)
             
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: false, currentPlayer: playerBOI)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: false,second: initModel.second, currentPlayer: playerBOI)
             
             
             onLocationSelectionComplete?(model!, UIImage.snapshot(from: textView))
             
         }
     }
-    
-    
-    // MARK: Interface Builder actions
     
     
 }
@@ -195,7 +181,7 @@ extension BuildSenditViewController {
         let sentenceTemp = textView.text
         let sentenceArr = sentenceTemp?.components(separatedBy: " ")
         
-        model = SenditSentence(sentence: sentenceArr!, isComplete: true, currentPlayer: playerBOI)
+        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, currentPlayer: playerBOI)
         let snapshot = UIImage.snapshot(from: textView)
         onGameCompletion?(model!, true, snapshot)
         

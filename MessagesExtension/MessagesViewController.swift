@@ -11,7 +11,7 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    var seconds: Int = 15
+    var seconds: Int!
     
     var random: Bool = true
     
@@ -50,6 +50,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
     
     func getSeconds()-> Int{
+        print(seconds)
         return seconds
     }
     func getRandom()-> Bool{
@@ -71,7 +72,7 @@ class MessagesViewController: MSMessagesAppViewController {
             if let message = conversation.selectedMessage,
                 let url = message.url {
                 let model = SenditSentence(from: url)
-                controller = instantiateBuildSenditViewController(with: conversation, model: model!, randomStart: getRandom() , secondStart: getSeconds())
+                controller = instantiateBuildSenditViewController(with: conversation, model: model!)
             }
             else {
                 controller = instantiateStartBuildingSenditViewController(with: conversation, randomStart: getRandom() , secondStart: getSeconds())
@@ -160,14 +161,8 @@ class MessagesViewController: MSMessagesAppViewController {
         
         controller.onCustoTap = {
             [unowned self] in
-            
             self.customizeMethod()
-
-        
-        
         }
-        
-        
         
         return controller
     }
@@ -228,20 +223,19 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     
-    private func instantiateBuildSenditViewController(with conversation: MSConversation, model: SenditSentence, randomStart: Bool, secondStart: Int) -> UIViewController {
+    private func instantiateBuildSenditViewController(with conversation: MSConversation, model: SenditSentence) -> UIViewController {
         
         
         
         guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
         
         controller.initModel = model
+        controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
         
-        
+        controller.setSeconds(sec: Int(model.second)!)
         
         if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
-            controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
-            controller.setSeconds(second: secondStart)
-            controller.setRandom(randoms: randomStart)
+            
             controller.onGameCompletion = {
                 [unowned self]
                 model, playerWon, snapshot in
@@ -289,8 +283,6 @@ class MessagesViewController: MSMessagesAppViewController {
             
         }
         else if (model.isComplete) {
-            controller.setSeconds(second: secondStart)
-            controller.setRandom(randoms: randomStart)
             let alert = UIAlertController(title: "Impromptu session complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
             
