@@ -156,7 +156,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X3-17-da5" customClass="PressableButton" customModule="SwiftyButton">
                                 <rect key="frame" x="136" y="388" width="102" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="9X3-17-da5" secondAttribute="height" multiplier="102:31" id="EQq-Me-M9Z"/>
+                                    <constraint firstAttribute="width" constant="102" id="sgx-nj-Znf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
                                 <state key="normal" title="Send it!"/>
@@ -180,6 +180,7 @@
                         <constraints>
                             <constraint firstItem="LEu-4S-tAU" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="110" id="1q6-fp-TGF"/>
                             <constraint firstItem="oeu-fD-3bE" firstAttribute="centerX" secondItem="kNO-fq-l2v" secondAttribute="centerX" id="3Cd-rN-ejD"/>
+                            <constraint firstItem="qwH-uy-gXm" firstAttribute="top" secondItem="9X3-17-da5" secondAttribute="bottom" constant="1" id="6IT-jD-bJY"/>
                             <constraint firstItem="9X3-17-da5" firstAttribute="top" secondItem="oeu-fD-3bE" secondAttribute="bottom" constant="8" id="7eI-3G-UbD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h6e-jb-cMC" secondAttribute="trailing" constant="92" id="BOn-Fm-QwD"/>
                             <constraint firstItem="fGa-F2-uEd" firstAttribute="top" secondItem="h6e-jb-cMC" secondAttribute="bottom" constant="8" id="FNd-0e-lTU"/>

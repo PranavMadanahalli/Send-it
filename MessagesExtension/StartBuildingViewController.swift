@@ -63,8 +63,9 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     func counter()
     {
-        sec! -= 1
         timeLabel.text = String(sec)
+        sec! -= 1
+
         if (sec == 0)
         {
             timer.invalidate()

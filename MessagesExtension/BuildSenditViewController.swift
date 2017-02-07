@@ -59,8 +59,9 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     // MARK: UIViewController
     func counter()
     {
-        seconds! -= 1
         timeLabel.text = String(seconds)
+        seconds! -= 1
+
         if (seconds == 0)
         {
             timer.invalidate()
