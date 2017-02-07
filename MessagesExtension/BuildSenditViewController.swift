@@ -83,13 +83,10 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.setContentOffset(CGPoint.init(x: 0.0, y: 15.0), animated: false)
         timer.invalidate()
 
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
-
-        self.automaticallyAdjustsScrollViewInsets = false
         
         textField.delegate = self
         

@@ -36,7 +36,8 @@ class MessagesViewController: MSMessagesAppViewController {
     override func didBecomeActive(with conversation: MSConversation) {
         super.didBecomeActive(with: conversation)
         
-        
+      
+
         presentChildViewController(for: presentationStyle, with: conversation)
     }
     

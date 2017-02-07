@@ -50,17 +50,17 @@ class CustomizeViewController: UIViewController {
         
         if sender.selectedSegmentIndex == 0{
             
-            timeHomie = 11
+            timeHomie = 10
         }
         if sender.selectedSegmentIndex == 1{
             
-            timeHomie = 16
+            timeHomie = 15
 
             
         }
         if sender.selectedSegmentIndex == 2{
             
-            timeHomie = 31
+            timeHomie = 30
 
         
         }

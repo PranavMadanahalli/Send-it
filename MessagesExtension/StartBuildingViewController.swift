@@ -13,6 +13,9 @@ import RxCocoa
 
 import TextFieldEffects
 
+import FirebaseDatabase
+import Firebase
+
 
 class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
@@ -90,40 +93,43 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         sec = seconds!
-
+        
         timer.invalidate()
-
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
-        
-        
-        //self.automaticallyAdjustsScrollViewInsets = false
-        
-        //textView.setContentOffset(CGPoint.init(x: 0.0, y: 15.0), animated: false)
-
         textField.delegate = self
         
-        let initSentence: Variable<String>;
-        if(random!){
-            let randomIndex = Int(arc4random_uniform(UInt32(setenceStarters.count)))
-            initSentence = Variable(setenceStarters[randomIndex])
-        }
-        else {
-            initSentence = Variable("")
-        }
-    
+        
+       
+            
+            
+            let initSentence: Variable<String>;
+            
+            if(self.random!){
+                let randomIndex = Int(arc4random_uniform(UInt32(setenceStarters.count)))
+                initSentence = Variable(setenceStarters[randomIndex])
+            }
+            else {
+                initSentence = Variable("")
+            }
+            
+            
+            
+            //magic happens here
+            let wordObservable: Observable<String?> = self.textField.rx.text.asObservable()
+            let initSentenceObservable: Observable<String> = initSentence.asObservable()
+            initSentenceObservable.subscribe(onNext: {(string: String) in
+                print (string)
+                
+            })
+            let finalSentence: Observable<String> = Observable.combineLatest(initSentenceObservable, wordObservable) { (initSent: String?, word: String?) -> String in
+                return initSent! + word!
+            }
+            finalSentence.bindTo(self.textView.rx.text).addDisposableTo(self.disposeBag)
+            
 
         
-        //magic happens here
-        let wordObservable: Observable<String?> = textField.rx.text.asObservable()
-        let initSentenceObservable: Observable<String> = initSentence.asObservable()
-        initSentenceObservable.subscribe(onNext: {(string: String) in
-            print (string)
         
-        })
-        let finalSentence: Observable<String> = Observable.combineLatest(initSentenceObservable, wordObservable) { (initSent: String?, word: String?) -> String in
-            return initSent! + word!
-        }
-        finalSentence.bindTo(textView.rx.text).addDisposableTo(disposeBag)
         
         
         
@@ -157,7 +163,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
             let model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), currentPlayer: playerStartUID)
         
             // Clear screen for snapshot (we don't want to give away where we've located our ships!)
-            
+
             onLocationSelectionComplete?(model, UIImage.snapshot(from: textView))
         }
     }
