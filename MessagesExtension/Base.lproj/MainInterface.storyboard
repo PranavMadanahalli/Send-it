@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bQF-uP-oGy" firstAttribute="centerX" secondItem="wJd-PR-mFR" secondAttribute="centerX" id="4RT-YL-AG3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tDu-f7-kvE" secondAttribute="trailing" constant="88" id="MDn-Hd-ycT"/>
@@ -149,7 +149,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X3-17-da5" customClass="PressableButton" customModule="SwiftyButton">
                                 <rect key="frame" x="136" y="381" width="102" height="31"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -167,7 +167,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="oeu-fD-3bE" secondAttribute="trailing" constant="92" id="5eA-ab-JXs"/>
                             <constraint firstItem="9X3-17-da5" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="120" id="8Da-Zg-IVt"/>
@@ -221,7 +221,7 @@
                                     <constraint firstAttribute="width" secondItem="SaV-7I-oP9" secondAttribute="height" multiplier="54:23" id="tOu-nF-TKS"/>
                                     <constraint firstAttribute="width" constant="108" id="zzy-yW-Dcv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -290,7 +290,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1yL-tw-uoq" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="36" id="DNO-AJ-tnp"/>
                             <constraint firstItem="hFk-ys-PLm" firstAttribute="bottom" secondItem="SaV-7I-oP9" secondAttribute="bottom" id="RY7-k9-Eiw"/>
@@ -365,7 +365,7 @@
                                     <constraint firstAttribute="width" secondItem="Pw8-ok-L2G" secondAttribute="height" multiplier="54:23" id="n5R-k2-FW6"/>
                                     <constraint firstAttribute="width" constant="108" id="uXq-ZU-ESJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -414,7 +414,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.3435897436" green="0.3435897436" blue="0.3435897436" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="42f-PE-2KD" firstAttribute="top" secondItem="6XV-Pf-Vdu" secondAttribute="bottom" constant="21" id="8bU-eJ-PFU"/>
                             <constraint firstItem="42f-PE-2KD" firstAttribute="leading" secondItem="fAW-Rh-dUA" secondAttribute="trailing" constant="8" symbolic="YES" id="Gnv-gA-ttD"/>
@@ -440,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hap-aT-WgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581.60000000000002" y="760.56971514242889"/>
+            <point key="canvasLocation" x="548" y="761"/>
         </scene>
     </scenes>
 </document>

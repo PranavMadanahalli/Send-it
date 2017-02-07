@@ -88,7 +88,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        textView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+        textView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     
