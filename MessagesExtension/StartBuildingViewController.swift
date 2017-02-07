@@ -13,8 +13,6 @@ import RxCocoa
 
 import TextFieldEffects
 
-import FirebaseDatabase
-import Firebase
 
 
 class StartBuildingViewController: UIViewController , UITextFieldDelegate {
@@ -88,6 +86,10 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         timer.invalidate()
 
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
+    }
     
     
     override func viewDidLoad() {
@@ -113,8 +115,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
                 initSentence = Variable("")
             }
             
-            
-            
+        
             //magic happens here
             let wordObservable: Observable<String?> = self.textField.rx.text.asObservable()
             let initSentenceObservable: Observable<String> = initSentence.asObservable()

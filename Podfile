@@ -7,12 +7,10 @@ target 'MessagesExtension' do
 
   # Pods for MessagesExtension
 	
-   pod 'Firebase/Database'
    pod "TextFieldEffects"
    pod 'SwiftyButton'
    pod 'RxSwift',    '~> 3.0'
    pod 'RxCocoa',    '~> 3.0'
-   #pod 'CountdownLabel', :git => 'https://github.com/SeRG1k17/CountdownLabel.git'
 
 
 
