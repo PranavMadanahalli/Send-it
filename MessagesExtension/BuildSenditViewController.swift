@@ -73,7 +73,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         textView.setContentOffset(CGPoint.init(x: 0.0, y: 15.0), animated: false)
         timer.invalidate()
 

@@ -81,6 +81,8 @@ class MessagesViewController: MSMessagesAppViewController {
             
         }
         
+        
+        
         return controller
     }
 
@@ -97,7 +99,8 @@ class MessagesViewController: MSMessagesAppViewController {
             model, snapshot in
             
             let session = MSSession()
-            let caption = "$\(conversation.localParticipantIdentifier) wants to play Send it! Add a word."
+            //let caption = "$\(conversation.localParticipantIdentifier) wants to play Send it! Add a word."
+            let caption = "Let's play Send it!"
             
             self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
             
@@ -111,7 +114,7 @@ class MessagesViewController: MSMessagesAppViewController {
             if let message = conversation.selectedMessage,
                 let session = message.session {
                 let player = "$\(conversation.localParticipantIdentifier)"
-                let caption = playerWon ? "\(player) ended the sentence." : "\(player) lost!"
+                let caption = playerWon ? "\(player) ended it." : "\(player) lost!"
                 
                 self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
             }
@@ -126,7 +129,7 @@ class MessagesViewController: MSMessagesAppViewController {
             if let message = conversation.selectedMessage,
                 let session = message.session {
                 let player = "$\(conversation.localParticipantIdentifier)"
-                let caption = playerWon ? "\(player) couldn't Send it in time." : "\(player) lost!"
+                let caption = playerWon ? "\(player) couldn't Send it." : "\(player) lost!"
                 
                 self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
             }
@@ -158,7 +161,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 if let message = conversation.selectedMessage,
                     let session = message.session {
                     let player = "$\(conversation.localParticipantIdentifier)"
-                    let caption = playerWon ? "\(player) ended the sentence." : "\(player) lost!"
+                    let caption = playerWon ? "\(player) ended it." : "\(player) lost!"
                     
                     self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
                 }
@@ -173,7 +176,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 if let message = conversation.selectedMessage,
                     let session = message.session {
                     let player = "$\(conversation.localParticipantIdentifier)"
-                    let caption = playerWon ? "\(player) couldn't Send it in time." : "\(player) lost!"
+                    let caption = playerWon ? "\(player) couldn't Send it." : "\(player) lost!"
                     
                     self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
                 }
@@ -186,7 +189,7 @@ class MessagesViewController: MSMessagesAppViewController {
                 model, snapshot in
             
                 let session = conversation.selectedMessage?.session ?? MSSession()
-                let caption = "Add a word - Send it!"
+                let caption = "Add a word."
             
                 self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
                 
@@ -199,7 +202,7 @@ class MessagesViewController: MSMessagesAppViewController {
         }
         else if (model.isComplete) {
             
-            let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Impromptu session complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
             
             return controller
@@ -229,6 +232,7 @@ extension MessagesViewController {
         let template = MSMessageTemplateLayout()
         template.image = image
         template.caption = caption
+        message.summaryText = "Send it"
         message.layout = template
         message.url = model.encode()
         
