@@ -28,7 +28,8 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     var seconds: Int!
     
     var random: Bool!
-
+    
+    var sec: Int!
    
     func setSeconds(second:Int){
     
@@ -41,7 +42,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         
     }
     
-    
+
     let disposeBag = DisposeBag()
     
     
@@ -62,8 +63,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     func counter()
     {
-        var sec = seconds!
-        sec -= 1
+        sec! -= 1
         timeLabel.text = String(sec)
         if (sec == 0)
         {
@@ -88,15 +88,16 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sec = seconds!
 
         timer.invalidate()
 
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
         
         
-        self.automaticallyAdjustsScrollViewInsets = false
+        //self.automaticallyAdjustsScrollViewInsets = false
         
-        textView.setContentOffset(CGPoint.init(x: 0.0, y: 15.0), animated: false)
+        //textView.setContentOffset(CGPoint.init(x: 0.0, y: 15.0), animated: false)
 
         textField.delegate = self
         

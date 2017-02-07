@@ -11,7 +11,7 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
-    var seconds: Int!
+    var seconds: Int = 15
     
     var random: Bool = true
     
