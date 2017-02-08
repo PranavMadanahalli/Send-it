@@ -57,7 +57,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
     var onTimeCompletion: ((SenditSentence,Bool, UIImage) -> Void)?
     
-    var startingNumber: Int = 0
+   // var startingNumber: Int = 0
 
 
 
@@ -75,12 +75,11 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
             var model: SenditSentence?
             let sentenceTemp = textView.text
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
-             let finalNumber = (sentenceArr?.count)! - startingNumber
-            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: String(seconds), rounds: String(finalNumber), currentPlayer: playerStartUID)
+           //  let finalNumber = (sentenceArr?.count)! - startingNumber
+            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: String(seconds), rounds: "1", currentPlayer: playerStartUID)
             let snapshot = UIImage.snapshot(from: textView)
             
             onTimeCompletion?(model!, true , snapshot)
-
             
         }
     }
@@ -113,8 +112,8 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
                 let randomIndex = Int(arc4random_uniform(UInt32(setenceStarters.count)))
                 initSentence = Variable(setenceStarters[randomIndex])
                 
-                let sentenceArr = String(describing: initSentence).components(separatedBy: " ")
-                startingNumber = sentenceArr.count
+                //let sentenceArr = String(describing: initSentence).components(separatedBy: " ")
+                //startingNumber = sentenceArr.count
                 
             }
             else {
@@ -167,9 +166,9 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
-            let finalNumber = (sentenceArr?.count)! - startingNumber
+            //let finalNumber = (sentenceArr?.count)! - startingNumber
         
-            let model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), rounds: String(finalNumber), currentPlayer: playerStartUID)
+            let model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), rounds: "1", currentPlayer: playerStartUID)
         
             // Clear screen for snapshot (we don't want to give away where we've located our ships!)
 
@@ -193,9 +192,9 @@ extension StartBuildingViewController {
         let sentenceTemp = textView.text
         let sentenceArr = sentenceTemp?.components(separatedBy: " ")
         
-        let finalNumber = (sentenceArr?.count)! - startingNumber
+        //let finalNumber = (sentenceArr?.count)! - startingNumber
         
-        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: String(seconds), rounds: String(finalNumber), currentPlayer: playerStartUID)
+        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: String(seconds), rounds: "1", currentPlayer: playerStartUID)
         let snapshot = UIImage.snapshot(from: textView)
         onGameCompletion?(model!, true, snapshot)
         

@@ -71,15 +71,15 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
         if (seconds == 0)
         {
-            
+            timer.invalidate()
+
             startingNumber = startingNumber! + 1
 
-            timer.invalidate()
             var model: SenditSentence?
             let sentenceTemp = textView.text
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, rounds: String(describing: startingNumber), currentPlayer: playerBOI)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, rounds: String(startingNumber), currentPlayer: playerBOI)
             let snapshot = UIImage.snapshot(from: textView)
             
             onTimeCompletion?(model!, true , snapshot)
@@ -98,19 +98,17 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         super.viewDidLoad()
         
         
+        startingNumber = Int(initModel.rounds)
+
+        
         
         timer.invalidate()
         
         if(timerYes){
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
-            startingNumber = Int(initModel.rounds)
             
             roundLabel.text = "rounds: " + "\(startingNumber!)"
             
-        }
-        else{
-            textField.isHidden = true
-            button.isHidden = true
         }
         
         textField.delegate = self
@@ -211,6 +209,7 @@ extension BuildSenditViewController {
         startingNumber = startingNumber! + 1
 
         model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second , rounds: String(startingNumber), currentPlayer: playerBOI)
+        
         let snapshot = UIImage.snapshot(from: textView)
         onGameCompletion?(model!, true, snapshot)
         

@@ -208,6 +208,8 @@ class MessagesViewController: MSMessagesAppViewController {
             [unowned self]
             model, playerWon, snapshot in
             
+
+            
             if let message = conversation.selectedMessage,
                 let session = message.session {
                 let player = "$\(conversation.localParticipantIdentifier)"
@@ -234,24 +236,25 @@ class MessagesViewController: MSMessagesAppViewController {
         
         controller.setSeconds(sec: Int(model.second)!)
         
+        
+        
         if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
+            
             
             controller.onGameCompletion = {
                 [unowned self]
-                model, playerWon, snapshot in
+                modelS, playerWon, snapshot in
                 
-                var number = Int(model.rounds)
+                var number = Int(modelS.rounds)
                 
                 number = number! - 1
-                
-            
                 
                 if let message = conversation.selectedMessage,
                     let session = message.session {
                     let player = "$\(conversation.localParticipantIdentifier)"
                     let caption = playerWon ? "\(player) ended it. \(number!) rounds." : "\(player) lost!"
                     
-                    self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
+                    self.insertMessageWith(caption: caption, modelS, session, snapshot, in: conversation)
                 }
                 
                 self.dismiss()
@@ -259,9 +262,9 @@ class MessagesViewController: MSMessagesAppViewController {
             
             controller.onTimeCompletion = {
                 [unowned self]
-                model, playerWon, snapshot in
+                modelT, playerWon, snapshot in
                 
-                var number = Int(model.rounds)
+                var number = Int(modelT.rounds)
                 
                 number = number! - 1
                 
@@ -270,9 +273,12 @@ class MessagesViewController: MSMessagesAppViewController {
                     let player = "$\(conversation.localParticipantIdentifier)"
                     let caption = playerWon ? "\(player) couldn't Send it. \(number!) rounds." : "\(player) lost!"
                     
-                    self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
+                    
+                    
+                    
+                    self.insertMessageWith(caption: caption, modelT, session, snapshot, in: conversation)
+                    
                 }
-                
                 self.dismiss()
             }
             
@@ -296,7 +302,7 @@ class MessagesViewController: MSMessagesAppViewController {
             let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
             
-            controller.roundLabel.isHidden = true
+            //controller.roundLabel.isHidden = true
             
             return controller
             
