@@ -12,6 +12,7 @@ class CustomizeViewController: UIViewController {
     
     static let storyboardIdentifier = "CustomizeViewController"
 
+    @IBOutlet var infoButton: UIButton!
 
     @IBOutlet var segControl: UISegmentedControl!
     
@@ -20,6 +21,10 @@ class CustomizeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        infoButton.isHidden = true
+        
+        
         random = true
         timeHomie = 15
     }

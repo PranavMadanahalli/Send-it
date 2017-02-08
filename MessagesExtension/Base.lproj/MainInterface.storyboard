@@ -197,6 +197,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="infoButton" destination="JPx-ZT-eJV" id="27v-9P-C4V"/>
                         <outlet property="segControl" destination="oeu-fD-3bE" id="feE-Jh-Whm"/>
                     </connections>
                 </viewController>
