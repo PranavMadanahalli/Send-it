@@ -17,7 +17,7 @@ import TextFieldEffects
 
 class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
-    var setenceStarters: [String] = ["That feeling when ", "It would ", "What if ","I love ","I like ","All ","If only ","If ","I can't ","Why ","How ","I want ","Everything ","I hate ","Whenever ","There once was ","Once upon a time ","One time ","I have a dream that ","My favorite ", "Yesterday ", "Tomorrow ", "I will ", "Something "]
+    var setenceStarters: [String] = ["        That feeling when ", "        It would ", "        What if ","        I love ","        I like ","       All ","         If only ","      If ","        I can't ","        Why ","        How ","        I want ","        Everything ","        I hate ","        Whenever ","      There once was ","        Once upon a time ","        One time ","        I have a dream that ","        My favorite ", "        Yesterday ", "        Tomorrow ", "        I will ", "        Something "]
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: AkiraTextField!
@@ -118,7 +118,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
                 
             }
             else {
-                initSentence = Variable("")
+                initSentence = Variable("        ")
             }
             
         

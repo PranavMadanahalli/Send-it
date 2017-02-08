@@ -43,9 +43,10 @@ class CustomizeViewController: UIViewController {
         let alertController = UIAlertController(title: "Version 1.0", message: "Add a word before the timer ends. Puncuation completes the sentence.", preferredStyle: .alert)
         
         // Create the actions
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) {
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
+            
         }
         
         alertController.addAction(okAction)
