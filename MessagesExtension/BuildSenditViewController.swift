@@ -11,6 +11,7 @@ import TextFieldEffects
 
 import RxSwift
 import RxCocoa
+import SwiftyButton
 
 
 class BuildSenditViewController: UIViewController , UITextFieldDelegate {
@@ -18,6 +19,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     static let storyboardIdentifier = "BuildSenditViewController"
     
+    @IBOutlet var button: PressableButton!
     
     @IBOutlet var textField: AkiraTextField!
     @IBOutlet var textView: UITextView!
@@ -41,6 +43,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
     }
     
+    @IBOutlet var roundLabel: UILabel!
     
     let disposeBag = DisposeBag()
     
@@ -56,7 +59,8 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     var playerBOI: String!
     
-    
+    var startingNumber: Int!
+
     
     
     // MARK: UIViewController
@@ -67,12 +71,15 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
         if (seconds == 0)
         {
+            
+            startingNumber = startingNumber! + 1
+
             timer.invalidate()
             var model: SenditSentence?
             let sentenceTemp = textView.text
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, currentPlayer: playerBOI)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, rounds: String(describing: startingNumber), currentPlayer: playerBOI)
             let snapshot = UIImage.snapshot(from: textView)
             
             onTimeCompletion?(model!, true , snapshot)
@@ -89,11 +96,21 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
         timer.invalidate()
-
+        
         if(timerYes){
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+            startingNumber = Int(initModel.rounds)
+            
+            roundLabel.text = "rounds: " + "\(startingNumber!)"
+            
+        }
+        else{
+            textField.isHidden = true
+            button.isHidden = true
         }
         
         textField.delegate = self
@@ -105,6 +122,8 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
             let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
+            
+            roundLabel.isHidden = true
             
             
             return
@@ -168,8 +187,10 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             
             print(playerBOI)
             
+            startingNumber = startingNumber! + 1
+
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: false,second: initModel.second, currentPlayer: playerBOI)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: false,second: initModel.second,rounds: String(startingNumber), currentPlayer: playerBOI)
             
             
             onLocationSelectionComplete?(model!, UIImage.snapshot(from: textView))
@@ -187,7 +208,9 @@ extension BuildSenditViewController {
         let sentenceTemp = textView.text
         let sentenceArr = sentenceTemp?.components(separatedBy: " ")
         
-        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, currentPlayer: playerBOI)
+        startingNumber = startingNumber! + 1
+
+        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second , rounds: String(startingNumber), currentPlayer: playerBOI)
         let snapshot = UIImage.snapshot(from: textView)
         onGameCompletion?(model!, true, snapshot)
         

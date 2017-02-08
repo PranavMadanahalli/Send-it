@@ -51,7 +51,6 @@ class MessagesViewController: MSMessagesAppViewController {
     
     
     func getSeconds()-> Int{
-        print(seconds)
         return seconds
     }
     func getRandom()-> Bool{
@@ -241,10 +240,16 @@ class MessagesViewController: MSMessagesAppViewController {
                 [unowned self]
                 model, playerWon, snapshot in
                 
+                var number = Int(model.rounds)
+                
+                number = number! - 1
+                
+            
+                
                 if let message = conversation.selectedMessage,
                     let session = message.session {
                     let player = "$\(conversation.localParticipantIdentifier)"
-                    let caption = playerWon ? "\(player) ended it." : "\(player) lost!"
+                    let caption = playerWon ? "\(player) ended it. \(number!) rounds." : "\(player) lost!"
                     
                     self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
                 }
@@ -256,10 +261,14 @@ class MessagesViewController: MSMessagesAppViewController {
                 [unowned self]
                 model, playerWon, snapshot in
                 
+                var number = Int(model.rounds)
+                
+                number = number! - 1
+                
                 if let message = conversation.selectedMessage,
                     let session = message.session {
                     let player = "$\(conversation.localParticipantIdentifier)"
-                    let caption = playerWon ? "\(player) couldn't Send it." : "\(player) lost!"
+                    let caption = playerWon ? "\(player) couldn't Send it. \(number!) rounds." : "\(player) lost!"
                     
                     self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
                 }
@@ -284,8 +293,10 @@ class MessagesViewController: MSMessagesAppViewController {
             
         }
         else if (model.isComplete) {
-            let alert = UIAlertController(title: "Impromptu session complete.", message: "send another one.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
+            
+            controller.roundLabel.isHidden = true
             
             return controller
             

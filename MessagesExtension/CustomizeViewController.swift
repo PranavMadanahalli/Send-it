@@ -38,6 +38,23 @@ class CustomizeViewController: UIViewController {
             sendData()
         
     }
+    
+    @IBAction func getInfo(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Version 1.0", message: "Add a word before the timer ends. Puncuation completes the sentence.", preferredStyle: .alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+        }
+        
+        alertController.addAction(okAction)
+        
+        // Present the controller
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
     func sendData()-> String{
         
         //return textField.text!+" "+String(random)
