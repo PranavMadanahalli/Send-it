@@ -208,12 +208,15 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         return true
     }
     @IBAction func timerAction(_ sender: Any) {
+        timer.invalidate()
+
         let alertController = UIAlertController(title: "", message: "customize in main menu", preferredStyle: .alert)
         
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
             
         }
         
@@ -223,12 +226,16 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     @IBAction func puncuationEnds(_ sender: Any) {
+        timer.invalidate()
+
         let alertController = UIAlertController(title: "", message: ". ? ! ends the game.", preferredStyle: .alert)
         
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+
             
         }
         
@@ -239,12 +246,16 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         
     }
     @IBAction func beCreative(_ sender: Any) {
+        timer.invalidate()
+
         let alertController = UIAlertController(title: "Just Send it.", message: "Creativity takes courage. -- Henri Matisse", preferredStyle: .alert)
         
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+
             
         }
         

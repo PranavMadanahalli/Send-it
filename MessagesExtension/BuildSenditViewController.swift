@@ -194,13 +194,16 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
     }
     @IBAction func timerAction(_ sender: Any) {
+        timer.invalidate()
+
         let alertController = UIAlertController(title: "", message: "customize in main menu", preferredStyle: .alert)
         
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+
         }
         
         alertController.addAction(okAction)
@@ -209,13 +212,16 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     @IBAction func beCreative(_ sender: Any) {
+        timer.invalidate()
+
         let alertController = UIAlertController(title: "Just Send it.", message: "Creativity takes courage. -- Henri Matisse", preferredStyle: .alert)
         
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+
         }
         
         alertController.addAction(okAction)
@@ -224,13 +230,16 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     @IBAction func puncuationEnds(_ sender: Any) {
+        timer.invalidate()
+
         let alertController = UIAlertController(title: "", message: ". ? ! ends the game.", preferredStyle: .alert)
         
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+
         }
         
         alertController.addAction(okAction)
@@ -243,6 +252,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         if(textField.text == ""){
             return
         }
+        
         timer.invalidate()
         
         if textView.text.contains(".") || textView.text.contains("!") || textView.text.contains("?"){

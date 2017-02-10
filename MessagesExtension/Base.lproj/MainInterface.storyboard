@@ -49,12 +49,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDu-f7-kvE" customClass="PressableButton" customModule="SwiftyButton">
-                                <rect key="frame" x="103" y="268.5" width="168" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQF-uP-oGy">
+                                <rect key="frame" x="136" y="346.5" width="103" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="tDu-f7-kvE" secondAttribute="height" multiplier="56:17" id="0qx-aI-CYh"/>
+                                    <constraint firstAttribute="width" secondItem="bQF-uP-oGy" secondAttribute="height" multiplier="5:2" id="79V-jf-aVp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                <state key="normal" title="- customize -">
+                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="customize:" destination="as6-he-df7" eventType="touchUpInside" id="Aai-0r-FXP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDu-f7-kvE" customClass="PressableButton" customModule="SwiftyButton">
+                                <rect key="frame" x="110" y="272" width="155" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tDu-f7-kvE" secondAttribute="height" multiplier="155:47" id="STN-0H-8FN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="21"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -71,29 +84,16 @@
                                     <action selector="startGame:" destination="as6-he-df7" eventType="touchUpInside" id="t3k-7r-Gxm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQF-uP-oGy">
-                                <rect key="frame" x="145.5" y="346.5" width="84" height="33.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bQF-uP-oGy" secondAttribute="height" multiplier="5:2" id="79V-jf-aVp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
-                                <state key="normal" title="customize.">
-                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="customize:" destination="as6-he-df7" eventType="touchUpInside" id="Aai-0r-FXP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tDu-f7-kvE" secondAttribute="trailing" constant="94" id="1a9-by-HdB"/>
                             <constraint firstItem="bQF-uP-oGy" firstAttribute="centerX" secondItem="wJd-PR-mFR" secondAttribute="centerX" id="4RT-YL-AG3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tDu-f7-kvE" secondAttribute="trailing" constant="88" id="MDn-Hd-ycT"/>
+                            <constraint firstItem="tDu-f7-kvE" firstAttribute="leading" secondItem="wJd-PR-mFR" secondAttribute="leadingMargin" constant="94" id="I2Y-5o-U4b"/>
                             <constraint firstItem="bQF-uP-oGy" firstAttribute="top" secondItem="gcq-ph-Ro8" secondAttribute="bottom" constant="1" id="ZuZ-bx-pkh"/>
+                            <constraint firstItem="gcq-ph-Ro8" firstAttribute="top" secondItem="tDu-f7-kvE" secondAttribute="bottom" constant="2.5" id="dgp-qB-yAG"/>
                             <constraint firstItem="gcq-ph-Ro8" firstAttribute="centerY" secondItem="wJd-PR-mFR" secondAttribute="centerY" id="gQb-0z-0VM"/>
-                            <constraint firstItem="tDu-f7-kvE" firstAttribute="leading" secondItem="wJd-PR-mFR" secondAttribute="leadingMargin" constant="87" id="iNv-0M-xMe"/>
                             <constraint firstItem="gcq-ph-Ro8" firstAttribute="centerX" secondItem="wJd-PR-mFR" secondAttribute="centerX" id="sQP-qD-9hK"/>
-                            <constraint firstItem="gcq-ph-Ro8" firstAttribute="top" secondItem="tDu-f7-kvE" secondAttribute="bottom" constant="2" id="wa3-jQ-mS0"/>
                         </constraints>
                     </view>
                 </viewController>
