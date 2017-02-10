@@ -211,7 +211,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         let alertController = UIAlertController(title: "", message: "customize in main menu", preferredStyle: .alert)
         
         // Create the actions
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
             
@@ -222,11 +222,27 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         // Present the controller
         self.present(alertController, animated: true, completion: nil)
     }
+    @IBAction func puncuationEnds(_ sender: Any) {
+        let alertController = UIAlertController(title: "", message: ". ? ! ends the game.", preferredStyle: .alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            
+        }
+        
+        alertController.addAction(okAction)
+        
+        // Present the controller
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
     @IBAction func beCreative(_ sender: Any) {
         let alertController = UIAlertController(title: "Just Send it.", message: "Creativity takes courage. -- Henri Matisse", preferredStyle: .alert)
         
         // Create the actions
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
             
