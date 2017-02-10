@@ -83,23 +83,48 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
             
         }
     }
+    func updateTextView (notification:Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardEndFrameScreenCoordinates = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoordinates, to: view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            textView.contentInset = UIEdgeInsets.zero
+        }else{
+            textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardEndFrame.height, right: 0)
+            
+            textView.scrollIndicatorInsets = textView.contentInset
+        }
+        
+        textView.scrollRangeToVisible(textView.selectedRange)
+        
+        
+        
+        
+    }
     override func viewDidDisappear(_ animated: Bool) {
         timer.invalidate()
 
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        textView.setContentOffset(CGPoint.zero, animated: false)
     }
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(StartBuildingViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(StartBuildingViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        
         sec = seconds!
         
         timer.invalidate()
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+        
         textField.delegate = self
         
         
@@ -147,14 +172,13 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         
     }
     
-    @IBAction func sendIt(_ sender: Any) {
-        
+    @IBAction func sendIT(_ sender: Any) {
         if(textField.text == "" ){
             return
         }
         
         timer.invalidate()
-
+        
         if textView.text.contains(".") || textView.text.contains("!") || textView.text.contains("?"){
             
             gameCompletionFunc()
@@ -163,17 +187,18 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         else{
             
             let sentenceTemp = textView.text
-        
+            
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
             //let finalNumber = (sentenceArr?.count)! - startingNumber
-        
+            
             let model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), rounds: "1", currentPlayer: playerStartUID)
-        
+            
             // Clear screen for snapshot (we don't want to give away where we've located our ships!)
-
+            
             onLocationSelectionComplete?(model, UIImage.snapshot(from: textView))
         }
+
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -227,19 +227,27 @@ class MessagesViewController: MSMessagesAppViewController {
     
     private func instantiateBuildSenditViewController(with conversation: MSConversation, model: SenditSentence) -> UIViewController {
         
-        
-        
         guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
         
         controller.initModel = model
         controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
         
         controller.setSeconds(sec: Int(model.second)!)
+       
         
         
         
-        if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
+        if (model.isComplete) {
             
+            
+            let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
+            present(alert, animated: true)
+            
+            
+            return controller
+            
+        }
+        else if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
             
             controller.onGameCompletion = {
                 [unowned self]
@@ -298,16 +306,14 @@ class MessagesViewController: MSMessagesAppViewController {
             return controller
             
         }
-        else if (model.isComplete) {
-            let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
-            present(alert, animated: true)
-            
-            //controller.roundLabel.isHidden = true
-            
-            return controller
-            
-        }
         else {
+            
+            guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
+            
+            controller.initModel = model
+            controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
+            
+            controller.setSeconds(sec: Int(model.second)!)
             
             //guard let controller = storyboard?.instantiateViewController(withIdentifier: "StartSenditViewController") as? StartSenditViewController else {fatalError("Cannot instantiate view controller")}
             

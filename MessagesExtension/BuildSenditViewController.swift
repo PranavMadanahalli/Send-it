@@ -94,9 +94,33 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         super.viewDidLayoutSubviews()
         textView.setContentOffset(CGPoint.zero, animated: false)
     }
+    func updateTextView (notification:Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardEndFrameScreenCoordinates = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoordinates, to: view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            textView.contentInset = UIEdgeInsets.zero
+        }else{
+            textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardEndFrame.height, right: 0)
+            
+            textView.scrollIndicatorInsets = textView.contentInset
+        }
+        
+        textView.scrollRangeToVisible(textView.selectedRange)
+        
+        
+        
+        
+    }
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         
         startingNumber = Int(initModel.rounds)
 
@@ -115,14 +139,18 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
         if initModel.isComplete{
             
+            roundLabel.isHidden = true
+            
             timer.invalidate()
             textView.text = initModel.sentence.joined(separator: " ")
     
             let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
+           
             
-            roundLabel.isHidden = true
-            
+            // Present the controller
+            self.present(alert, animated: true, completion: nil)
+                    
             
             return
             
