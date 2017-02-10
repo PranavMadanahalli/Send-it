@@ -106,8 +106,6 @@ class MessagesViewController: MSMessagesAppViewController {
         
             controller = instantiateCustom()
         
-        
-        
         for child in childViewControllers {
             child.willMove(toParentViewController: nil)
             child.view.removeFromSuperview()

@@ -42,11 +42,13 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         seconds = sec
         
     }
+    var starterTemp: String!
     
     @IBOutlet var roundLabel: UILabel!
     
     let disposeBag = DisposeBag()
     
+    @IBOutlet var staticTextView: UITextView!
     
     var onGameCompletion: ((SenditSentence, Bool, UIImage) -> Void)?
     
@@ -79,12 +81,17 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             let sentenceTemp = textView.text
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, rounds: String(startingNumber), currentPlayer: playerBOI)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, rounds: String(startingNumber), currentPlayer: playerBOI, starterSent: starterTemp)
+            
             let snapshot = UIImage.snapshot(from: textView)
             
             onTimeCompletion?(model!, true , snapshot)
             
         }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        textField.becomeFirstResponder()
+        
     }
     override func viewDidDisappear(_ animated: Bool) {
         timer.invalidate()
@@ -123,6 +130,10 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         
         startingNumber = Int(initModel.rounds)
+        
+        starterTemp = initModel.starterSent
+        
+        staticTextView.text = starterTemp + "..."
 
         
         
@@ -271,7 +282,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             startingNumber = startingNumber! + 1
 
             
-            model = SenditSentence(sentence: sentenceArr!, isComplete: false,second: initModel.second,rounds: String(startingNumber), currentPlayer: playerBOI)
+            model = SenditSentence(sentence: sentenceArr!, isComplete: false,second: initModel.second,rounds: String(startingNumber), currentPlayer: playerBOI, starterSent: starterTemp)
             
             
             onLocationSelectionComplete?(model!, UIImage.snapshot(from: textView))
@@ -291,7 +302,7 @@ extension BuildSenditViewController {
         
         startingNumber = startingNumber! + 1
 
-        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second , rounds: String(startingNumber), currentPlayer: playerBOI)
+        model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second , rounds: String(startingNumber), currentPlayer: playerBOI, starterSent: starterTemp)
         
         let snapshot = UIImage.snapshot(from: textView)
         onGameCompletion?(model!, true, snapshot)

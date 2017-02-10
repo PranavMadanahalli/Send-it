@@ -23,7 +23,7 @@ struct SenditSentence {
     
     var currentPlayer: String
     
-    
+    var starterSent: String
 }
 
 extension SenditSentence{
@@ -76,6 +76,12 @@ extension SenditSentence{
         items.append(roundItem)
         
         
+        let starter  = starterSent
+        
+        let starterItem = URLQueryItem(name: "starter", value: starter)
+        
+        items.append(starterItem)
+        
         
         
         components.queryItems = items
@@ -116,6 +122,9 @@ extension SenditSentence {
         
         let roundQueryItem = componentItems.filter({ $0.name == "rounds" }).first!
         rounds = roundQueryItem.value!
+        
+        let sentQueryItem = componentItems.filter({ $0.name == "starter" }).first!
+        starterSent =  sentQueryItem.value!
         
     }
     

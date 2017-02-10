@@ -29,7 +29,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2" y="67"/>
+            <point key="canvasLocation" x="-40" y="-152"/>
         </scene>
         <!--Start Sendit View Controller-->
         <scene sceneID="13U-b4-ZZO">
@@ -131,7 +131,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="h6e-jb-cMC">
-                                <rect key="frame" x="108" y="43" width="159" height="32"/>
+                                <rect key="frame" x="108" y="41" width="159" height="32"/>
                                 <segments>
                                     <segment title="10"/>
                                     <segment title="15"/>
@@ -252,7 +252,7 @@
                                     <constraint firstAttribute="width" constant="108" id="Kz8-76-G5y"/>
                                     <constraint firstAttribute="width" secondItem="rgo-YB-Han" secondAttribute="height" multiplier="54:23" id="xcB-ZZ-bU1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -292,6 +292,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="just send it. (click for more)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-QS-OQl">
+                                <rect key="frame" x="0.0" y="164" width="375" height="42"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4S4-QS-OQl" secondAttribute="height" multiplier="125:14" id="hpm-M1-8Qq"/>
+                                </constraints>
+                                <color key="textColor" red="0.99215686270000003" green="0.4039215686" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOk-Ok-uUq">
                                 <rect key="frame" x="0.0" y="100" width="375" height="155"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -340,7 +350,8 @@
                             <constraint firstItem="JD4-Tu-Qhw" firstAttribute="top" secondItem="QOk-Ok-uUq" secondAttribute="bottom" constant="46" id="7If-re-tg6"/>
                             <constraint firstItem="QOk-Ok-uUq" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="36" id="9Ac-ee-jPD"/>
                             <constraint firstItem="qlx-0K-fIl" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="82" id="9u3-Z8-CJb"/>
-                            <constraint firstItem="fZj-Dx-vjc" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="17" id="O7o-mv-z8z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4S4-QS-OQl" secondAttribute="trailing" constant="-16" id="Fb6-5R-BaC"/>
+                            <constraint firstItem="fZj-Dx-vjc" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="17" id="PUi-AI-9eg"/>
                             <constraint firstItem="QOk-Ok-uUq" firstAttribute="top" secondItem="M0k-zV-srR" secondAttribute="bottom" id="Pwa-7G-I2N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qlx-0K-fIl" secondAttribute="trailing" constant="126" id="Rio-Ar-h3a"/>
                             <constraint firstAttribute="trailing" secondItem="QOk-Ok-uUq" secondAttribute="trailing" id="SRT-U1-cyS"/>
@@ -352,12 +363,15 @@
                             <constraint firstItem="QOk-Ok-uUq" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leading" id="j0t-tf-LyC"/>
                             <constraint firstItem="Cly-Be-99F" firstAttribute="bottom" secondItem="rgo-YB-Han" secondAttribute="bottom" id="jxz-BI-COl"/>
                             <constraint firstItem="Cly-Be-99F" firstAttribute="leading" secondItem="JD4-Tu-Qhw" secondAttribute="trailing" constant="8" symbolic="YES" id="oqd-SR-49M"/>
+                            <constraint firstItem="4S4-QS-OQl" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="-16" id="or0-mY-ydt"/>
                             <constraint firstItem="rgo-YB-Han" firstAttribute="top" secondItem="QOk-Ok-uUq" secondAttribute="bottom" constant="38" id="wtA-DR-Qig"/>
+                            <constraint firstItem="4S4-QS-OQl" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="100" id="wxn-SJ-sPh"/>
                             <constraint firstItem="JD4-Tu-Qhw" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="11" id="zbx-Dw-Mnn"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="staticTextView" destination="4S4-QS-OQl" id="eRk-fU-bet"/>
                         <outlet property="textField" destination="Cly-Be-99F" id="A6F-ko-Xoz"/>
                         <outlet property="textView" destination="QOk-Ok-uUq" id="wcC-DL-tVN"/>
                         <outlet property="timeLabel" destination="JD4-Tu-Qhw" id="OGg-Bq-4Uf"/>
@@ -365,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgq-Bj-to9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="759.67016491754134"/>
+            <point key="canvasLocation" x="846" y="585"/>
         </scene>
         <!--Build Sendit View Controller-->
         <scene sceneID="3ga-Bv-GDZ">
@@ -414,7 +428,7 @@
                                     <constraint firstAttribute="width" secondItem="Pw8-ok-L2G" secondAttribute="height" multiplier="54:23" id="8ak-4X-wKv"/>
                                     <constraint firstAttribute="width" constant="108" id="aZH-cF-x1m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
                                 <state key="normal" title="Send it!"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -454,6 +468,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="just send it. (click for more)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-Hw-NTJ">
+                                <rect key="frame" x="0.0" y="169" width="375" height="42"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DMe-Hw-NTJ" secondAttribute="height" multiplier="125:14" id="dLS-RT-b8c"/>
+                                </constraints>
+                                <color key="textColor" red="0.99215686270000003" green="0.4039215686" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-Pf-Vdu">
                                 <rect key="frame" x="0.0" y="100" width="375" height="150"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -506,9 +530,11 @@
                         <constraints>
                             <constraint firstItem="asK-TT-Jiu" firstAttribute="top" secondItem="42f-PE-2KD" secondAttribute="bottom" id="1R3-k2-5y3"/>
                             <constraint firstItem="6XV-Pf-Vdu" firstAttribute="top" secondItem="WW6-AX-e40" secondAttribute="bottom" id="3Fc-wt-zHe"/>
-                            <constraint firstItem="eb8-ax-jce" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="17" id="8iI-rE-j2M"/>
+                            <constraint firstItem="DMe-Hw-NTJ" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="-16" id="4nD-uM-Qd2"/>
+                            <constraint firstItem="eb8-ax-jce" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="17" id="7p3-jy-5DK"/>
                             <constraint firstItem="fAW-Rh-dUA" firstAttribute="top" secondItem="6XV-Pf-Vdu" secondAttribute="bottom" constant="51" id="9O1-Y3-JRv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T73-oH-f4v" secondAttribute="trailing" id="9VY-lc-IkV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DMe-Hw-NTJ" secondAttribute="trailing" constant="-16" id="AnR-fA-j6O"/>
                             <constraint firstItem="42f-PE-2KD" firstAttribute="leading" secondItem="fAW-Rh-dUA" secondAttribute="trailing" constant="8" symbolic="YES" id="DOk-23-E6e"/>
                             <constraint firstAttribute="trailing" secondItem="6XV-Pf-Vdu" secondAttribute="trailing" id="ET5-D5-Mm4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="asK-TT-Jiu" secondAttribute="trailing" constant="126" id="GvX-mM-2yb"/>
@@ -524,6 +550,7 @@
                             <constraint firstItem="Pw8-ok-L2G" firstAttribute="leading" secondItem="42f-PE-2KD" secondAttribute="trailing" constant="9" id="qpt-H2-7Zd"/>
                             <constraint firstItem="fAW-Rh-dUA" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="11" id="syX-vx-DNq"/>
                             <constraint firstItem="42f-PE-2KD" firstAttribute="bottom" secondItem="Pw8-ok-L2G" secondAttribute="bottom" id="uCc-lT-f2L"/>
+                            <constraint firstItem="DMe-Hw-NTJ" firstAttribute="top" secondItem="CHu-bm-pgP" secondAttribute="bottom" constant="105" id="uYd-JE-6cJ"/>
                             <constraint firstItem="6XV-Pf-Vdu" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leading" id="w0L-2L-WOg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WW6-AX-e40" secondAttribute="trailing" constant="140" id="xsq-tn-Dd3"/>
                         </constraints>
@@ -532,6 +559,7 @@
                     <connections>
                         <outlet property="button" destination="Pw8-ok-L2G" id="mhr-nt-mJP"/>
                         <outlet property="roundLabel" destination="T73-oH-f4v" id="2jn-sf-dca"/>
+                        <outlet property="staticTextView" destination="DMe-Hw-NTJ" id="GWN-P4-y16"/>
                         <outlet property="textField" destination="42f-PE-2KD" id="aHr-sa-cQX"/>
                         <outlet property="textView" destination="6XV-Pf-Vdu" id="QoB-03-ssX"/>
                         <outlet property="timeLabel" destination="fAW-Rh-dUA" id="e53-DV-MoU"/>
@@ -539,7 +567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hap-aT-WgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="760.56971514242889"/>
+            <point key="canvasLocation" x="1612" y="585"/>
         </scene>
     </scenes>
 </document>
