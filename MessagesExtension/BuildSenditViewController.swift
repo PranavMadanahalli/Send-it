@@ -35,7 +35,9 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     func setTimerYes(ba: Bool){
         timerYes = ba
+        staticTextView.isHidden = true
     }
+    
    
     func setSeconds(sec:Int){
         
@@ -83,7 +85,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             
             model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second, rounds: String(startingNumber), currentPlayer: playerBOI, starterSent: starterTemp)
             
-            let snapshot = UIImage.snapshot(from: textView)
+            let snapshot = UIImage.snapshot(from: staticTextView)
             
             onTimeCompletion?(model!, true , snapshot)
             
@@ -133,7 +135,6 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
         starterTemp = initModel.starterSent
         
-        staticTextView.text = starterTemp + "..."
 
         
         
@@ -143,6 +144,8 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
             
             roundLabel.text = "rounds: " + "\(startingNumber!)"
+            staticTextView.text = "         " + starterTemp + "..."
+
             
         }
         
@@ -151,6 +154,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         if initModel.isComplete{
             
             roundLabel.isHidden = true
+            staticTextView.isHidden = true
             
             timer.invalidate()
             textView.text = initModel.sentence.joined(separator: " ")
@@ -285,7 +289,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             model = SenditSentence(sentence: sentenceArr!, isComplete: false,second: initModel.second,rounds: String(startingNumber), currentPlayer: playerBOI, starterSent: starterTemp)
             
             
-            onLocationSelectionComplete?(model!, UIImage.snapshot(from: textView))
+            onLocationSelectionComplete?(model!, UIImage.snapshot(from: staticTextView))
             
         }
     }
@@ -304,7 +308,7 @@ extension BuildSenditViewController {
 
         model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second , rounds: String(startingNumber), currentPlayer: playerBOI, starterSent: starterTemp)
         
-        let snapshot = UIImage.snapshot(from: textView)
+        let snapshot = UIImage.snapshot(from: staticTextView)
         onGameCompletion?(model!, true, snapshot)
         
     }

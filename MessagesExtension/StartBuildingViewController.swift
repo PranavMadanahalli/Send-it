@@ -17,7 +17,7 @@ import TextFieldEffects
 
 class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     
-    var setenceStarters: [String] = ["That feeling when ", "It would ", "What if ","I love ","         I like ","All ","If only ","If ","I can't ","Why ","How ","I want ","Everyone knows that ","         I really hate it when ","Whenever ","There once was ","Once upon a time ","One time ","I have a dream that ","My favorite ", "Yesterday ", "Tomorrow ", "I will ", "Something ","I think ", "Remember when ", "I wish ", "Would you be mad if ","If I could, I would ", "Did you ", "If I had a million dollars, ","My mom once said, ","I would travel to ", "I dreamt ","Odds are ","Never have I ever ","Everyone knows that ","Last night ", "An explorer always brings ","It's time to ", "Dear Santa, ", "May I ","Please don't ", "I am grateful for ","If I were president, I would ","Thank goodness there is ","I like it when ", "When I was young, ","As a child, ", "When I grow up, I want to ","If I could be an animal, I would be ", "If I could fly ", "If I were a superhero, I would ", "I worry about ", "A friend is someone who ", "A superpower I wish I could have is ", "A time I was brave was ","I was really scared when ", "I would like to teach everyone " , "It makes me angery when ", "I place I wish I could visit is ","If I had three wishes ", "I predict that ","I just learned ", "If I was in outer space, I woud ", "Right now I want ", "         When I am in my room I like to ", "If I wrote a book it would be about ", "I can show respect by ", "Never in a million years ", "Whether you like it or not, " , "Although some people believe ", "On the way to ", "Here are two reasons why ", "It wouldn't be very difficult to ", "I would prank ","I like to hear stories about ", "When someone is nice to me I ", "Right now I feel ", "What would happen if ", "I suggest that ", "I'm ready to ", "Is it just me or "]
+    var setenceStarters: [String] = ["That feeling when", "It would", "What if","I love ","I like it when","All ","If only","If","I can't","Why","How","I want","Everyone knows that","I really hate it when","Whenever","There once was","Once upon a time","One time","I have a dream that","My favorite", "Yesterday", "Tomorrow", "I will", "Something","I think", "Remember when", "I wish", "Would you be mad if","If I could, I would", "Did you", "If I had a million dollars,","My mom once said,","I would travel to", "I dreamt","Odds are","Never have I ever","Everyone knows that","Last night", "An explorer always brings","It's time to", "Dear Santa,", "May I","Please don't", "I am grateful for","If I were president, I would","Thank goodness there is","I like it when", "When I was young,","As a child,", "When I grow up, I want to","If I could be an animal, I would be", "If I could fly", "If I were a superhero, I would", "I worry about", "A friend is someone who", "A superpower I wish I could have is", "A time I was brave was","I was really scared when", "I would like to teach everyone" , "It makes me angery when", "I place I wish I could visit is","If I had three wishes", "I predict that","I just learned", "If I was in outer space, I woud", "Right now I want", "When I am in my room I like to", "If I wrote a book it would be about", "I can show respect by", "Never in a million years", "Whether you like it or not," , "Although some people believe", "On the way to", "Here are two reasons why", "It wouldn't be very difficult to", "I would prank","I like to hear stories about", "When someone is nice to me I", "Right now I feel", "What would happen if", "I suggest that", "I'm ready to", "Is it just me or","My doctor told me to"]
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: AkiraTextField!
@@ -150,13 +150,15 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
                 //let sentenceArr = String(describing: initSentence).components(separatedBy: " ")
                 //startingNumber = sentenceArr.count
                 
+                
             }
             else {
                 initSentence = Variable("")
             }
         
-            staticTextView.text = "      " + starterTemp + "..."
-            
+
+        
+        
         
             //magic happens here
             let wordObservable: Observable<String?> = self.textField.rx.text.asObservable()
@@ -166,7 +168,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
                 
             })
             let finalSentence: Observable<String> = Observable.combineLatest(initSentenceObservable, wordObservable) { (initSent: String?, word: String?) -> String in
-                return initSent! + word!
+                return initSent! + " " + word!
             }
             finalSentence.bindTo(self.textView.rx.text).addDisposableTo(self.disposeBag)
             
@@ -185,6 +187,8 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     }
     
     @IBAction func sendIT(_ sender: Any) {
+        
+
         if(textField.text == "" ){
             return
         }
@@ -198,15 +202,29 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
         }
         else{
             
+
             let sentenceTemp = textView.text
             
             let sentenceArr = sentenceTemp?.components(separatedBy: " ")
             
             //let finalNumber = (sentenceArr?.count)! - startingNumber
             
-            let model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), rounds: "1", currentPlayer: playerStartUID, starterSent: starterTemp)
             
+            let model: SenditSentence!
             // Clear screen for snapshot (we don't want to give away where we've located our ships!)
+            
+            if  random == false {
+                
+                staticTextView.text  = "         " + textView.text + "..."
+                
+                model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), rounds: "1", currentPlayer: playerStartUID, starterSent: textView.text)
+            
+            }
+            else {
+                staticTextView.text = "         " + starterTemp + "..."
+                model = SenditSentence(sentence: sentenceArr!, isComplete: false, second: String(seconds), rounds: "1", currentPlayer: playerStartUID, starterSent: starterTemp)
+
+            }
             
             onLocationSelectionComplete?(model, UIImage.snapshot(from: staticTextView))
         }

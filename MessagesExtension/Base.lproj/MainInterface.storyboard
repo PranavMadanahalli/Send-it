@@ -292,13 +292,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="just send it. (click for more)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4S4-QS-OQl">
-                                <rect key="frame" x="0.0" y="164" width="375" height="42"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="If I wrote a book it would be about..." translatesAutoresizingMaskIntoConstraints="NO" id="4S4-QS-OQl">
+                                <rect key="frame" x="0.0" y="150" width="375" height="64"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="4S4-QS-OQl" secondAttribute="height" multiplier="125:14" id="hpm-M1-8Qq"/>
+                                    <constraint firstAttribute="width" secondItem="4S4-QS-OQl" secondAttribute="height" multiplier="375:64" id="0YU-9w-cVZ"/>
                                 </constraints>
-                                <color key="textColor" red="0.99215686270000003" green="0.4039215686" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -350,22 +350,22 @@
                             <constraint firstItem="JD4-Tu-Qhw" firstAttribute="top" secondItem="QOk-Ok-uUq" secondAttribute="bottom" constant="46" id="7If-re-tg6"/>
                             <constraint firstItem="QOk-Ok-uUq" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="36" id="9Ac-ee-jPD"/>
                             <constraint firstItem="qlx-0K-fIl" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="82" id="9u3-Z8-CJb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4S4-QS-OQl" secondAttribute="trailing" constant="-16" id="Fb6-5R-BaC"/>
+                            <constraint firstItem="4S4-QS-OQl" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="86" id="Nei-eO-Daa"/>
                             <constraint firstItem="fZj-Dx-vjc" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="17" id="PUi-AI-9eg"/>
                             <constraint firstItem="QOk-Ok-uUq" firstAttribute="top" secondItem="M0k-zV-srR" secondAttribute="bottom" id="Pwa-7G-I2N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qlx-0K-fIl" secondAttribute="trailing" constant="126" id="Rio-Ar-h3a"/>
                             <constraint firstAttribute="trailing" secondItem="QOk-Ok-uUq" secondAttribute="trailing" id="SRT-U1-cyS"/>
                             <constraint firstItem="M0k-zV-srR" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="139" id="VlK-3G-9qo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4S4-QS-OQl" secondAttribute="trailing" constant="-16" id="a6w-l9-dqV"/>
                             <constraint firstItem="qlx-0K-fIl" firstAttribute="top" secondItem="Cly-Be-99F" secondAttribute="bottom" id="cLu-2y-2bo"/>
                             <constraint firstItem="JD4-Tu-Qhw" firstAttribute="centerY" secondItem="rgo-YB-Han" secondAttribute="centerY" id="dtN-4d-1vY"/>
                             <constraint firstItem="rgo-YB-Han" firstAttribute="trailing" secondItem="6C0-Ku-YoI" secondAttribute="trailingMargin" id="hJI-MF-nhG"/>
+                            <constraint firstItem="4S4-QS-OQl" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="-16" id="hSm-bl-duW"/>
                             <constraint firstItem="rgo-YB-Han" firstAttribute="leading" secondItem="Cly-Be-99F" secondAttribute="trailing" constant="9" id="ijz-XM-C7H"/>
                             <constraint firstItem="QOk-Ok-uUq" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leading" id="j0t-tf-LyC"/>
                             <constraint firstItem="Cly-Be-99F" firstAttribute="bottom" secondItem="rgo-YB-Han" secondAttribute="bottom" id="jxz-BI-COl"/>
                             <constraint firstItem="Cly-Be-99F" firstAttribute="leading" secondItem="JD4-Tu-Qhw" secondAttribute="trailing" constant="8" symbolic="YES" id="oqd-SR-49M"/>
-                            <constraint firstItem="4S4-QS-OQl" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="-16" id="or0-mY-ydt"/>
                             <constraint firstItem="rgo-YB-Han" firstAttribute="top" secondItem="QOk-Ok-uUq" secondAttribute="bottom" constant="38" id="wtA-DR-Qig"/>
-                            <constraint firstItem="4S4-QS-OQl" firstAttribute="top" secondItem="vPl-wU-nvk" secondAttribute="bottom" constant="100" id="wxn-SJ-sPh"/>
                             <constraint firstItem="JD4-Tu-Qhw" firstAttribute="leading" secondItem="6C0-Ku-YoI" secondAttribute="leadingMargin" constant="11" id="zbx-Dw-Mnn"/>
                         </constraints>
                     </view>
@@ -379,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgq-Bj-to9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="585"/>
+            <point key="canvasLocation" x="845.60000000000002" y="584.25787106446785"/>
         </scene>
         <!--Build Sendit View Controller-->
         <scene sceneID="3ga-Bv-GDZ">
@@ -468,16 +468,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="just send it. (click for more)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DMe-Hw-NTJ">
-                                <rect key="frame" x="0.0" y="169" width="375" height="42"/>
-                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="DMe-Hw-NTJ" secondAttribute="height" multiplier="125:14" id="dLS-RT-b8c"/>
-                                </constraints>
-                                <color key="textColor" red="0.99215686270000003" green="0.4039215686" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-Pf-Vdu">
                                 <rect key="frame" x="0.0" y="100" width="375" height="150"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -525,20 +515,31 @@
                                     <action selector="beCreative:" destination="EnE-UX-JKW" eventType="touchUpInside" id="pi4-5a-hQO"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="If I wrote a book it would be about..." translatesAutoresizingMaskIntoConstraints="NO" id="pha-0N-Ndy">
+                                <rect key="frame" x="0.0" y="151" width="375" height="64"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pha-0N-Ndy" secondAttribute="height" multiplier="375:64" id="KJc-Y6-LIH"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="asK-TT-Jiu" firstAttribute="top" secondItem="42f-PE-2KD" secondAttribute="bottom" id="1R3-k2-5y3"/>
                             <constraint firstItem="6XV-Pf-Vdu" firstAttribute="top" secondItem="WW6-AX-e40" secondAttribute="bottom" id="3Fc-wt-zHe"/>
-                            <constraint firstItem="DMe-Hw-NTJ" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="-16" id="4nD-uM-Qd2"/>
                             <constraint firstItem="eb8-ax-jce" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="17" id="7p3-jy-5DK"/>
                             <constraint firstItem="fAW-Rh-dUA" firstAttribute="top" secondItem="6XV-Pf-Vdu" secondAttribute="bottom" constant="51" id="9O1-Y3-JRv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T73-oH-f4v" secondAttribute="trailing" id="9VY-lc-IkV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DMe-Hw-NTJ" secondAttribute="trailing" constant="-16" id="AnR-fA-j6O"/>
+                            <constraint firstItem="pha-0N-Ndy" firstAttribute="top" secondItem="CHu-bm-pgP" secondAttribute="bottom" constant="87" id="CBQ-ME-WwJ"/>
                             <constraint firstItem="42f-PE-2KD" firstAttribute="leading" secondItem="fAW-Rh-dUA" secondAttribute="trailing" constant="8" symbolic="YES" id="DOk-23-E6e"/>
                             <constraint firstAttribute="trailing" secondItem="6XV-Pf-Vdu" secondAttribute="trailing" id="ET5-D5-Mm4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pha-0N-Ndy" secondAttribute="trailing" constant="-16" id="F7v-gI-f0h"/>
                             <constraint firstAttribute="trailingMargin" secondItem="asK-TT-Jiu" secondAttribute="trailing" constant="126" id="GvX-mM-2yb"/>
                             <constraint firstItem="WW6-AX-e40" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="139" id="JXG-5o-xXu"/>
+                            <constraint firstItem="pha-0N-Ndy" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="-16" id="O3i-81-bA0"/>
                             <constraint firstItem="T73-oH-f4v" firstAttribute="top" secondItem="CHu-bm-pgP" secondAttribute="bottom" constant="11" id="Pf4-IG-2Gc"/>
                             <constraint firstItem="asK-TT-Jiu" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="82" id="Wdn-eJ-rdZ"/>
                             <constraint firstItem="Pw8-ok-L2G" firstAttribute="top" secondItem="6XV-Pf-Vdu" secondAttribute="bottom" constant="43" id="XSa-c4-EzX"/>
@@ -550,7 +551,6 @@
                             <constraint firstItem="Pw8-ok-L2G" firstAttribute="leading" secondItem="42f-PE-2KD" secondAttribute="trailing" constant="9" id="qpt-H2-7Zd"/>
                             <constraint firstItem="fAW-Rh-dUA" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leadingMargin" constant="11" id="syX-vx-DNq"/>
                             <constraint firstItem="42f-PE-2KD" firstAttribute="bottom" secondItem="Pw8-ok-L2G" secondAttribute="bottom" id="uCc-lT-f2L"/>
-                            <constraint firstItem="DMe-Hw-NTJ" firstAttribute="top" secondItem="CHu-bm-pgP" secondAttribute="bottom" constant="105" id="uYd-JE-6cJ"/>
                             <constraint firstItem="6XV-Pf-Vdu" firstAttribute="leading" secondItem="mjM-mI-fey" secondAttribute="leading" id="w0L-2L-WOg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WW6-AX-e40" secondAttribute="trailing" constant="140" id="xsq-tn-Dd3"/>
                         </constraints>
@@ -559,7 +559,7 @@
                     <connections>
                         <outlet property="button" destination="Pw8-ok-L2G" id="mhr-nt-mJP"/>
                         <outlet property="roundLabel" destination="T73-oH-f4v" id="2jn-sf-dca"/>
-                        <outlet property="staticTextView" destination="DMe-Hw-NTJ" id="GWN-P4-y16"/>
+                        <outlet property="staticTextView" destination="pha-0N-Ndy" id="dV0-sp-Ufc"/>
                         <outlet property="textField" destination="42f-PE-2KD" id="aHr-sa-cQX"/>
                         <outlet property="textView" destination="6XV-Pf-Vdu" id="QoB-03-ssX"/>
                         <outlet property="timeLabel" destination="fAW-Rh-dUA" id="e53-DV-MoU"/>
