@@ -35,7 +35,7 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     func setTimerYes(ba: Bool){
         timerYes = ba
-        staticTextView.isHidden = true
+        //staticTextView.isHidden = true
     }
     
    
@@ -147,6 +147,10 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             staticTextView.text = "         " + starterTemp + "..."
 
             
+        }else{
+            staticTextView.isHidden = true
+
+        
         }
         
         textField.delegate = self
