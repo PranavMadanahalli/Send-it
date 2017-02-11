@@ -27,7 +27,7 @@ class FinishViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.text = initModel.sentence.joined(separator: " ") 
+        textView.text = initModel.sentence.joined(separator: " ")
     }
     @IBAction func moreInfo(_ sender: Any) {
         let alertController = UIAlertController(title: "Customize.", message: "Try clicking customize next time you start another Send it game.", preferredStyle: .alert)
