@@ -195,7 +195,6 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
-            NSLog("OK Pressed")
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
 
         }
@@ -213,7 +212,6 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
-            NSLog("OK Pressed")
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
 
         }
@@ -231,7 +229,6 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         // Create the actions
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
             UIAlertAction in
-            NSLog("OK Pressed")
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
 
         }

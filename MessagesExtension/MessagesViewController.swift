@@ -167,7 +167,7 @@ class MessagesViewController: MSMessagesAppViewController {
 
     private func instantiateStartBuildingSenditViewController(with conversation: MSConversation, randomStart: Bool, secondStart: Int) -> UIViewController {
         // Instantiate a `BuildIceCreamViewController` and present it.
-        guard let controller = storyboard?.instantiateViewController(withIdentifier:StartBuildingViewController.storyboardIdentifier) as? StartBuildingViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
+        guard let controller = storyboard?.instantiateViewController(withIdentifier:StartBuildingViewController.storyboardIdentifier) as? StartBuildingViewController else { fatalError("Unable to instantiate a StartBuildingViewController from the storyboard") }
         
         controller.setCurrentPlayer(player: "\(conversation.localParticipantIdentifier)")
         
@@ -206,12 +206,13 @@ class MessagesViewController: MSMessagesAppViewController {
             [unowned self]
             model, playerWon, snapshot in
             
+            var number = Int(model.rounds)
 
             
             if let message = conversation.selectedMessage,
                 let session = message.session {
                 let player = "$\(conversation.localParticipantIdentifier)"
-                let caption = playerWon ? "\(player) couldn't Send it." : "\(player) lost!"
+                let caption = playerWon ? "\(player) couldn't Send it. \(number!) rounds." : "\(player) lost!"
                 
                 self.insertMessageWith(caption: caption, model, session, snapshot, in: conversation)
             }
@@ -232,7 +233,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         if (model.isComplete) {
             
-            guard let controller = storyboard?.instantiateViewController(withIdentifier: FinishViewController.storyboardIdentifier) as? FinishViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
+            guard let controller = storyboard?.instantiateViewController(withIdentifier: FinishViewController.storyboardIdentifier) as? FinishViewController else { fatalError("Unable to instantiate a BFinishViewController from the storyboard") }
             
             controller.initModel = model
             
@@ -244,7 +245,7 @@ class MessagesViewController: MSMessagesAppViewController {
         }
             
         else if(model.currentPlayer != "\(conversation.localParticipantIdentifier)"){
-            guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
+            guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildSenditViewController from the storyboard") }
             
             controller.initModel = model
             controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
@@ -310,7 +311,7 @@ class MessagesViewController: MSMessagesAppViewController {
         }
         else {
             
-            guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildIceCreamViewController from the storyboard") }
+            guard let controller = storyboard?.instantiateViewController(withIdentifier: BuildSenditViewController.storyboardIdentifier) as? BuildSenditViewController else { fatalError("Unable to instantiate a BuildSenditViewController from the storyboard") }
             
             controller.initModel = model
             controller.currentPlayer(playerUID: "\(conversation.localParticipantIdentifier)")
