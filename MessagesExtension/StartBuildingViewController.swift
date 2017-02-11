@@ -22,6 +22,7 @@ class StartBuildingViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: AkiraTextField!
     
+    
     @IBOutlet var timeLabel: UILabel!
     
      var timer = Timer()
