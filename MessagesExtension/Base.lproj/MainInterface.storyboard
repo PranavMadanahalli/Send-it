@@ -302,7 +302,7 @@
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOk-Ok-uUq">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOk-Ok-uUq">
                                 <rect key="frame" x="0.0" y="100" width="375" height="155"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -477,7 +477,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-Pf-Vdu">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-Pf-Vdu">
                                 <rect key="frame" x="0.0" y="100" width="375" height="150"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -571,7 +571,7 @@
         <!--Finish View Controller-->
         <scene sceneID="n5j-IX-DEV">
             <objects>
-                <viewController id="C1H-Pw-NpC" customClass="FinishViewController" customModule="MessagesExtension" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinishViewController" id="C1H-Pw-NpC" customClass="FinishViewController" customModule="MessagesExtension" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EOE-fK-K72"/>
                         <viewControllerLayoutGuide type="bottom" id="l6R-5G-RqO"/>
@@ -580,28 +580,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ure-Ve-KUh">
-                                <rect key="frame" x="0.0" y="100" width="375" height="330"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" text="That feeling when" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ure-Ve-KUh">
+                                <rect key="frame" x="0.0" y="118" width="375" height="224"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="scroll for more." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX4-Vx-QIV">
-                                <rect key="frame" x="138" y="438" width="99" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scroll for more." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX4-Vx-QIV">
+                                <rect key="frame" x="138" y="350" width="99" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bX4-Vx-QIV" secondAttribute="height" multiplier="99:13" id="2LR-6l-na7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentence Complete." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmg-PY-GrD">
+                                <rect key="frame" x="102" y="90" width="170" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mmg-PY-GrD" secondAttribute="height" multiplier="10:1" id="9yb-iT-ItF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <color key="textColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUz-1l-Wnk">
+                                <rect key="frame" x="337" y="87" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RUz-1l-Wnk" secondAttribute="height" multiplier="1:1" id="E44-Hs-1yx"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99215686270000003" green="0.4039215686" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="moreInfo:" destination="C1H-Pw-NpC" eventType="touchUpInside" id="57e-Eg-wUU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mmg-PY-GrD" firstAttribute="centerX" secondItem="ure-Ve-KUh" secondAttribute="centerX" id="3RW-65-OQv"/>
+                            <constraint firstItem="bX4-Vx-QIV" firstAttribute="top" secondItem="ure-Ve-KUh" secondAttribute="bottom" constant="8" symbolic="YES" id="9zo-oa-xV6"/>
+                            <constraint firstAttribute="trailing" secondItem="ure-Ve-KUh" secondAttribute="trailing" id="E0c-Kq-E2g"/>
+                            <constraint firstItem="l6R-5G-RqO" firstAttribute="top" secondItem="bX4-Vx-QIV" secondAttribute="bottom" constant="304" id="IcY-2b-WpE"/>
+                            <constraint firstItem="RUz-1l-Wnk" firstAttribute="top" secondItem="EOE-fK-K72" secondAttribute="bottom" constant="23" id="JQx-83-qo8"/>
+                            <constraint firstItem="RUz-1l-Wnk" firstAttribute="trailing" secondItem="mHt-rE-4NG" secondAttribute="trailingMargin" id="TsX-lQ-R9V"/>
+                            <constraint firstItem="ure-Ve-KUh" firstAttribute="leading" secondItem="mHt-rE-4NG" secondAttribute="leading" id="agD-1l-RGr"/>
+                            <constraint firstItem="ure-Ve-KUh" firstAttribute="centerX" secondItem="bX4-Vx-QIV" secondAttribute="centerX" id="blJ-ZR-AbI"/>
+                            <constraint firstItem="Mmg-PY-GrD" firstAttribute="centerY" secondItem="RUz-1l-Wnk" secondAttribute="centerY" id="gH1-5Q-onv"/>
+                            <constraint firstItem="ure-Ve-KUh" firstAttribute="top" secondItem="RUz-1l-Wnk" secondAttribute="bottom" constant="9" id="wgq-d4-C9y"/>
+                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="textView" destination="ure-Ve-KUh" id="eCY-6k-63K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRa-lQ-v3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2271" y="466"/>
+            <point key="canvasLocation" x="2269.5999999999999" y="465.51724137931041"/>
         </scene>
     </scenes>
 </document>

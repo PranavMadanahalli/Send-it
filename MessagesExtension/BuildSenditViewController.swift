@@ -33,7 +33,6 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     var timerYes: Bool = true
     
-    var gameEndedNothing: Bool = true
     
     func setTimerYes(ba: Bool){
         timerYes = ba
@@ -121,110 +120,60 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
         
     }
-    func allowToView(){
-        
-        gameEndedNothing = false
-        
-    
-    
-    }
+   
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if gameEndedNothing {
         
-            NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         
-            startingNumber = Int(initModel.rounds)
+        NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         
-            starterTemp = initModel.starterSent
+        startingNumber = Int(initModel.rounds)
+        
+        starterTemp = initModel.starterSent
         
 
         
         
-            timer.invalidate()
+        timer.invalidate()
         
-            if(timerYes){
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
+        if(timerYes){
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
             
-                roundLabel.text = "rounds: " + "\(startingNumber!)"
-                staticTextView.text = "           " + starterTemp + "..."
+            roundLabel.text = "rounds: " + "\(startingNumber!)"
+            staticTextView.text = "           " + starterTemp + "..."
 
             
-            }else{
-            
-                staticTextView.isHidden = true
-
+        }else{
         
-            }
-        
-            textField.delegate = self
-            
-            if initModel.isComplete{
-            
-                roundLabel.isHidden = true
-                staticTextView.isHidden = true
-            
-                timer.invalidate()
-                textView.text = initModel.sentence.joined(separator: " ")
-    
-                let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
-                present(alert, animated: true)
-            
-                let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
-                    UIAlertAction in
-                    NSLog("OK Pressed")
-                
-                }
-            
-                alert.addAction(okAction)
-            
-                // Present the controller
-                self.present(alert, animated: true, completion: nil)
-                    
-            
-                return
-            
-            }
-            else {
-        
-            
-                let initSentence: Variable<String> = Variable(initModel.sentence.joined(separator: " ") + " ")
-            
-                let wordObservable: Observable<String?> = textField.rx.text.asObservable()
-            
-                let initSentenceObservable: Observable<String> = initSentence.asObservable()
-                initSentenceObservable.subscribe(onNext: {(string: String) in
-                })
-            
-                let finalSentence: Observable<String> = Observable.combineLatest(initSentenceObservable, wordObservable) { (initSent: String?, word: String?) -> String in
-                
-                return initSent! + word!
-                
-                }
-            
-                finalSentence.bindTo(textView.rx.text).addDisposableTo(disposeBag)
-            
-            }
-        
-        }
-        else {
-            textField.isHidden = true
             staticTextView.isHidden = true
-            button.isHidden = true
-            roundLabel.isHidden = true
-            timeLabel.isHidden = true
-            
-            textView.text = initModel.sentence.joined(separator: " ")
-            
+
         
         }
         
+        textField.delegate = self
         
         
+        
+            
+        let initSentence: Variable<String> = Variable(initModel.sentence.joined(separator: " ") + " ")
+            
+        let wordObservable: Observable<String?> = textField.rx.text.asObservable()
+            
+        let initSentenceObservable: Observable<String> = initSentence.asObservable()
+            initSentenceObservable.subscribe(onNext: {(string: String) in
+        })
+            
+        let finalSentence: Observable<String> = Observable.combineLatest(initSentenceObservable, wordObservable) { (initSent: String?, word: String?) -> String in
+                
+        return initSent! + word!
+                
+        }
+            finalSentence.bindTo(textView.rx.text).addDisposableTo(disposeBag)
+       
         
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -13,16 +13,39 @@ class FinishViewController: UIViewController {
     
     
     
+    @IBOutlet var textView: UITextView!
     
+    var initModel: SenditSentence!
+
     
-    
-    
-    
+    static let storyboardIdentifier = "FinishViewController"
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textView.setContentOffset(CGPoint.zero, animated: false)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        textView.text = initModel.sentence.joined(separator: " ") 
     }
+    @IBAction func moreInfo(_ sender: Any) {
+        let alertController = UIAlertController(title: "Customize.", message: "Try clicking customize next time you start another Send it game.", preferredStyle: .alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            
+        }
+        
+        alertController.addAction(okAction)
+        
+        // Present the controller
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,14 +53,6 @@ class FinishViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
