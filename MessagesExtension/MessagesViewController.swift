@@ -237,9 +237,21 @@ class MessagesViewController: MSMessagesAppViewController {
         
         if (model.isComplete) {
             
+            controller.allowToView()
             
             let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
             present(alert, animated: true)
+            
+            let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                NSLog("OK Pressed")
+                
+            }
+            
+            alert.addAction(okAction)
+            
+            // Present the controller
+            self.present(alert, animated: true, completion: nil)
             
             
             return controller

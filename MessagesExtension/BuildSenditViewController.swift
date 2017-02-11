@@ -33,6 +33,8 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
     
     var timerYes: Bool = true
     
+    var gameEndedNothing: Bool = true
+    
     func setTimerYes(ba: Bool){
         timerYes = ba
         //staticTextView.isHidden = true
@@ -91,10 +93,6 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             
         }
     }
-    override func viewDidAppear(_ animated: Bool) {
-        textField.becomeFirstResponder()
-        
-    }
     override func viewDidDisappear(_ animated: Bool) {
         timer.invalidate()
         
@@ -123,78 +121,106 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
         
         
     }
+    func allowToView(){
+        
+        gameEndedNothing = false
+        
+    
+    
+    }
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        if gameEndedNothing {
         
-        startingNumber = Int(initModel.rounds)
+            NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(BuildSenditViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         
-        starterTemp = initModel.starterSent
+            startingNumber = Int(initModel.rounds)
+        
+            starterTemp = initModel.starterSent
         
 
         
         
-        timer.invalidate()
-        
-        if(timerYes){
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
-            
-            roundLabel.text = "rounds: " + "\(startingNumber!)"
-            staticTextView.text = "         " + starterTemp + "..."
-
-            
-        }else{
-            staticTextView.isHidden = true
-
-        
-        }
-        
-        textField.delegate = self
-        
-        if initModel.isComplete{
-            
-            roundLabel.isHidden = true
-            staticTextView.isHidden = true
-            
             timer.invalidate()
-            textView.text = initModel.sentence.joined(separator: " ")
-    
-            let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
-            present(alert, animated: true)
-           
+        
+            if(timerYes){
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.counter), userInfo: nil, repeats: true)
             
-            // Present the controller
-            self.present(alert, animated: true, completion: nil)
+                roundLabel.text = "rounds: " + "\(startingNumber!)"
+                staticTextView.text = "           " + starterTemp + "..."
+
+            
+            }else{
+            
+                staticTextView.isHidden = true
+
+        
+            }
+        
+            textField.delegate = self
+            
+            if initModel.isComplete{
+            
+                roundLabel.isHidden = true
+                staticTextView.isHidden = true
+            
+                timer.invalidate()
+                textView.text = initModel.sentence.joined(separator: " ")
+    
+                let alert = UIAlertController(title: "Sentence Complete.", message: "send another one.", preferredStyle: .alert)
+                present(alert, animated: true)
+            
+                let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    NSLog("OK Pressed")
+                
+                }
+            
+                alert.addAction(okAction)
+            
+                // Present the controller
+                self.present(alert, animated: true, completion: nil)
                     
             
-            return
+                return
             
-        }
-        else {
+            }
+            else {
         
             
-            let initSentence: Variable<String> = Variable(initModel.sentence.joined(separator: " ") + " ")
+                let initSentence: Variable<String> = Variable(initModel.sentence.joined(separator: " ") + " ")
             
-            let wordObservable: Observable<String?> = textField.rx.text.asObservable()
+                let wordObservable: Observable<String?> = textField.rx.text.asObservable()
             
-            let initSentenceObservable: Observable<String> = initSentence.asObservable()
-            initSentenceObservable.subscribe(onNext: {(string: String) in
-                print (string)
-                
-            })
+                let initSentenceObservable: Observable<String> = initSentence.asObservable()
+                initSentenceObservable.subscribe(onNext: {(string: String) in
+                })
             
-            let finalSentence: Observable<String> = Observable.combineLatest(initSentenceObservable, wordObservable) { (initSent: String?, word: String?) -> String in
+                let finalSentence: Observable<String> = Observable.combineLatest(initSentenceObservable, wordObservable) { (initSent: String?, word: String?) -> String in
                 
                 return initSent! + word!
                 
+                }
+            
+                finalSentence.bindTo(textView.rx.text).addDisposableTo(disposeBag)
+            
             }
+        
+        }
+        else {
+            textField.isHidden = true
+            staticTextView.isHidden = true
+            button.isHidden = true
+            roundLabel.isHidden = true
+            timeLabel.isHidden = true
             
-            finalSentence.bindTo(textView.rx.text).addDisposableTo(disposeBag)
+            textView.text = initModel.sentence.joined(separator: " ")
             
+        
         }
         
         
@@ -272,7 +298,6 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             return
         }
         
-        timer.invalidate()
         
         if textView.text.contains(".") || textView.text.contains("!") || textView.text.contains("?"){
             
@@ -296,6 +321,8 @@ class BuildSenditViewController: UIViewController , UITextFieldDelegate {
             onLocationSelectionComplete?(model!, UIImage.snapshot(from: staticTextView))
             
         }
+        timer.invalidate()
+
     }
     
     
@@ -306,13 +333,15 @@ extension BuildSenditViewController {
         
         var model: SenditSentence?
         let sentenceTemp = textView.text
+        
+        textView.text = "           " + textView.text
         let sentenceArr = sentenceTemp?.components(separatedBy: " ")
         
         startingNumber = startingNumber! + 1
 
         model = SenditSentence(sentence: sentenceArr!, isComplete: true, second: initModel.second , rounds: String(startingNumber), currentPlayer: playerBOI, starterSent: starterTemp)
         
-        let snapshot = UIImage.snapshot(from: staticTextView)
+        let snapshot = UIImage.snapshot(from: textView)
         onGameCompletion?(model!, true, snapshot)
         
     }
