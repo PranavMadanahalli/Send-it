@@ -11,20 +11,18 @@ import UIKit
 class CustomizeViewController: UIViewController {
     
     static let storyboardIdentifier = "CustomizeViewController"
-
-    @IBOutlet var infoButton: UIButton!
-
     @IBOutlet var segControl: UISegmentedControl!
     
+    
+    //boolean that determines if Send it starts with a random or custom sentence starter
     var random: Bool!
+    //int that keeps track of the starting countdown timer value
     var timeHomie: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        infoButton.isHidden = true
-        
-        
+        //defualt random is true and 15 second timer
         random = true
         timeHomie = 15
     }
@@ -37,38 +35,18 @@ class CustomizeViewController: UIViewController {
     
     var onButtonTap: ((Void) -> Void)?
     
+    //when 'send it' button is pressed values for timerHomie and random get transfered to StartBuidlingSenditViewController
     @IBAction func startGame(_ sender: AnyObject){
-       
-            onButtonTap?()
-            sendData()
-        
-    }
-    
-    @IBAction func getInfo(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Version 1.0", message: "Add a word before the timer ends. Puncuation completes the sentence.", preferredStyle: .alert)
-        
-        // Create the actions
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-            NSLog("OK Pressed")
-            
-        }
-        
-        alertController.addAction(okAction)
-        
-        // Present the controller
-        self.present(alertController, animated: true, completion: nil)
+        onButtonTap?()
+        print(sendData())
         
     }
     
     func sendData()-> String{
         
-        //return textField.text!+" "+String(random)
-
         return String(random) + " " + String(timeHomie)
     }
-    
-    
+    //recognized the segmented control changes and sets timeHomie to values selected by user
     @IBAction func timeChanged(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0{
@@ -79,7 +57,6 @@ class CustomizeViewController: UIViewController {
             
             timeHomie = 15
 
-            
         }
         if sender.selectedSegmentIndex == 2{
             
@@ -89,15 +66,13 @@ class CustomizeViewController: UIViewController {
         }
         
     }
+    //recognized the random segmented control changes and sets random to values selected by user
     @IBAction func segDelta(_ sender: UISegmentedControl) {
-        
         if sender.selectedSegmentIndex == 0{
-            
             random  = true
             
         }
         else{
-            
             random  = false
             
         }

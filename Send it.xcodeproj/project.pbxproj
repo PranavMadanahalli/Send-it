@@ -148,13 +148,13 @@
 			isa = PBXGroup;
 			children = (
 				81D49DBA1E45B6FD00DB31F2 /* MessagesViewController.swift */,
+				81D49DCD1E45BCAA00DB31F2 /* SenditSentence.swift */,
 				81C73C731E466C8100806D2A /* UIImage+Snapshot.swift */,
 				81D49DCB1E45B90100DB31F2 /* StartSenditViewController.swift */,
-				81C73C711E46684200806D2A /* BuildSenditViewController.swift */,
 				81C73C751E46720300806D2A /* StartBuildingViewController.swift */,
+				81C73C711E46684200806D2A /* BuildSenditViewController.swift */,
 				817C96111E49B1BA001ED68A /* CustomizeViewController.swift */,
 				819A05CF1E4ECC78002644CF /* FinishViewController.swift */,
-				81D49DCD1E45BCAA00DB31F2 /* SenditSentence.swift */,
 				81D49DBC1E45B6FD00DB31F2 /* MainInterface.storyboard */,
 				81D49DBF1E45B6FD00DB31F2 /* Assets.xcassets */,
 				81D49DC11E45B6FD00DB31F2 /* Info.plist */,
@@ -515,7 +515,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LVUDU2WD93;
 				INFOPLIST_FILE = "Send it/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pranav-Madanahalli.Send-it";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -530,7 +530,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LVUDU2WD93;
 				INFOPLIST_FILE = "Send it/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Pranav-Madanahalli.Send-it";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

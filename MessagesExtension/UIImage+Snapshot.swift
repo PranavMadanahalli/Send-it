@@ -9,13 +9,13 @@
 import UIKit
 
 extension UIImage {
-    /// Create an image represenation of the given view
+    
+    /// Create an image represenation of the starter for SenditSentence
     class func snapshot(from view: UITextView) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
+        
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        
         let snapshot = UIGraphicsGetImageFromCurrentImageContext()
-        
         UIGraphicsEndImageContext()
         
         return snapshot!

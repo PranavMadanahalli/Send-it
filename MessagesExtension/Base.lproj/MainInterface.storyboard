@@ -167,13 +167,6 @@
                                     <action selector="startGame:" destination="Oja-NC-d3Q" eventType="touchUpInside" id="Nrc-xn-g1f"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPx-ZT-eJV">
-                                <rect key="frame" x="329" y="141" width="22" height="22"/>
-                                <color key="tintColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="getInfo:" destination="Oja-NC-d3Q" eventType="touchUpInside" id="IDB-PR-q9N"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -184,9 +177,7 @@
                             <constraint firstItem="fGa-F2-uEd" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="106" id="Np5-vs-wZB"/>
                             <constraint firstItem="9X3-17-da5" firstAttribute="top" secondItem="oeu-fD-3bE" secondAttribute="bottom" constant="8" id="RHR-Z1-IPz"/>
                             <constraint firstItem="oeu-fD-3bE" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="92" id="RhH-vn-Y8L"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JPx-ZT-eJV" secondAttribute="trailing" constant="8" id="XQV-mn-pCz"/>
                             <constraint firstItem="LEu-4S-tAU" firstAttribute="top" secondItem="y3b-oh-y4l" secondAttribute="bottom" constant="5" id="cpm-fD-BUw"/>
-                            <constraint firstItem="JPx-ZT-eJV" firstAttribute="top" secondItem="y3b-oh-y4l" secondAttribute="bottom" constant="121" id="f2P-fz-jYJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h6e-jb-cMC" secondAttribute="trailing" constant="92" id="koR-bZ-msW"/>
                             <constraint firstItem="fGa-F2-uEd" firstAttribute="top" secondItem="h6e-jb-cMC" secondAttribute="bottom" constant="8" id="lzB-e2-FUd"/>
                             <constraint firstItem="LEu-4S-tAU" firstAttribute="leading" secondItem="kNO-fq-l2v" secondAttribute="leadingMargin" constant="110" id="oui-Qa-1KE"/>
@@ -197,7 +188,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="infoButton" destination="JPx-ZT-eJV" id="27v-9P-C4V"/>
                         <outlet property="segControl" destination="oeu-fD-3bE" id="feE-Jh-Whm"/>
                     </connections>
                 </viewController>
@@ -378,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgq-Bj-to9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="583" y="567"/>
+            <point key="canvasLocation" x="581.60000000000002" y="566.26686656671666"/>
         </scene>
         <!--Build Sendit View Controller-->
         <scene sceneID="3ga-Bv-GDZ">
